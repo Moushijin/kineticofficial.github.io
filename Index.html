@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Official - Discord Server Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Dark Theme Defaults */
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --info: #3b82f6;
+
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-card: rgba(26, 26, 46, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.05);
+
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.2);
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+
+            --radius-sm: 6px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+        }
+
+        /* Light Theme Variables */
+        html[data-theme="light"] {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #6366f1;
+
+            --bg-primary: #f8fafc; /* Light off-white */
+            --bg-secondary: #e2e8f0; /* Slightly darker light grey */
+            --bg-tertiary: #cbd5e1; /* Even darker light grey */
+            --bg-card: rgba(255, 255, 255, 0.9); /* More opaque for light mode */
+            --bg-glass: rgba(255, 255, 255, 0.6);
+
+            --text-primary: #1e293b; /* Dark text */
+            --text-secondary: #475569; /* Slightly lighter dark text */
+            --text-muted: #64748b; /* Muted dark text */
+
+            --border: rgba(0, 0, 0, 0.1);
+            --border-hover: rgba(0, 0, 0, 0.2);
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Ensure smooth transition for background and text colors */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease; /* Smooth transition for body background */
+        }
+
+        /* Enhanced Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary); /* Use theme variable */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .loading-screen.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(99, 102, 241, 0.1); /* Use rgba for primary for semi-transparency */
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .loading-progress {
+            width: 300px;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.1); /* Use rgba for primary for semi-transparency */
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-full);
+            width: 0%;
+            animation: loadProgress 2.5s ease-out;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary); /* Use theme variable */
+            background: rgba(15, 15, 35, 0.9); /* Fallback for older browsers, then blur */
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease, background 0.5s ease, border-color 0.5s ease;
+        }
+
+        html[data-theme="light"] .navbar {
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .navbar.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            transition: background 0.5s ease;
+        }
+        html[data-theme="light"] .hero-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        html[data-theme="light"] .btn-secondary {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        html[data-theme="light"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: var(--border-hover);
+        }
+
+
+        /* Rules Section */
+        .rules-section {
+            padding: 6rem 0;
+            margin-top: 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search and Filter */
+        .rules-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+        }
+        html[data-theme="light"] .search-input {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+        html[data-theme="light"] .filter-btn {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Rules Grid */
+        .rules-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .rule-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, border-color 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        html[data-theme="light"] .rule-card {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .rule-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .rule-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rule-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .rule-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rule-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        html[data-theme="light"] .rule-tag {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-dark);
+        }
+
+
+        .rule-severity {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .severity-low { background: var(--success); }
+        .severity-medium { background: var(--warning); }
+        .severity-high { background: var(--danger); }
+
+        /* Quick Actions */
+        .quick-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .quick-action {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease, background 0.5s ease, color 0.5s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quick-action:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--bg-glass); /* Use theme variable */
+            backdrop-filter: blur(10px);
+        }
+        html[data-theme="light"] .theme-toggle {
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--text-primary);
+        }
+
+
+        /* Scroll to Top */
+        .scroll-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .rules-controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+
+            .quick-actions {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden { display: none !important; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-logo">Kinetic</div>
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading Assets...</p>
+        <div class="loading-progress">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Kinetic</a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#rules" class="nav-link">Rules</a></li>
+                </ul>
+            <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content container">
+            <h1 class="hero-title">Welcome to the Official <span class="primary-text">Kinetic</span> Discord</h1>
+            <p class="hero-subtitle">Our rules are designed to foster a friendly, respectful, and engaging community for everyone. Please read them carefully.</p>
+            <div class="hero-actions">
+                <a href="#rules" class="btn btn-primary"><i class="fas fa-book"></i> View Rules</a>
+                <a href="#" class="btn btn-secondary"><i class="fab fa-discord"></i> Join Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="rules-section" id="rules">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Community Rules</h2>
+                <p class="section-description">To ensure a positive environment, we ask all members to adhere to these guidelines. Violations may result in warnings, mutes, or bans.</p>
+            </div>
+
+            <div class="rules-controls">
+                <div class="search-box">
+                    <input type="text" id="ruleSearch" class="search-input" placeholder="Search rules..." aria-label="Search rules">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="general">General</button>
+                    <button class="filter-btn" data-filter="conduct">Conduct</button>
+                    <button class="filter-btn" data-filter="content">Content</button>
+                    <button class="filter-btn" data-filter="safety">Safety</button>
+                </div>
+            </div>
+
+            <div class="rules-grid" id="rulesGrid">
+                <div class="rule-card" data-tags="general conduct" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">01</div>
+                        <h3 class="rule-title">Be Respectful</h3>
+                    </div>
+                    <p class="rule-description">Treat all members with respect. Harassment, hate speech, discrimination, and personal attacks are strictly prohibited.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="content safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">02</div>
+                        <h3 class="rule-title">No NSFW Content</h3>
+                    </div>
+                    <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including explicit, graphic, or offensive material, in any channel.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Content</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="conduct general" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">03</div>
+                        <h3 class="rule-title">No Spamming</h3>
+                    </div>
+                    <p class="rule-description">Avoid excessive messages, repetitive content, or self-promotion that disrupts the chat flow.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">General</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="safety general" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">04</div>
+                        <h3 class="rule-title">Protect Your Privacy</h3>
+                    </div>
+                    <p class="rule-description">Do not share personal information about yourself or others (e.g., addresses, phone numbers, real names without consent).</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Safety</span>
+                        <span class="rule-tag">General</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="conduct content" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">05</div>
+                        <h3 class="rule-title">No Advertising</h3>
+                    </div>
+                    <p class="rule-description">Do not advertise other Discord servers, social media, or other communities without explicit moderator permission.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">Content</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="general conduct" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">06</div>
+                        <h3 class="rule-title">Follow Channel Topics</h3>
+                    </div>
+                    <p class="rule-description">Keep conversations relevant to the channel topic. Off-topic discussions should be moved to appropriate channels.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                 <div class="rule-card" data-tags="conduct safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">07</div>
+                        <h3 class="rule-title">No Cheating/Exploiting</h3>
+                    </div>
+                    <p class="rule-description">Discussions or promotion of cheating, hacking, or exploiting in games or any system is strictly forbidden.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="general safety" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">08</div>
+                        <h3 class="rule-title">English Only in Public Channels</h3>
+                    </div>
+                    <p class="rule-description">To ensure all moderators can understand and enforce rules, please use English in public discussion channels.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="conduct safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">09</div>
+                        <h3 class="rule-title">No Impersonation</h3>
+                    </div>
+                    <p class="rule-description">Do not impersonate other users, staff, or public figures. This includes using similar names or profile pictures.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="content general" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">10</div>
+                        <h3 class="rule-title">Appropriate Profile Pictures & Names</h3>
+                    </div>
+                    <p class="rule-description">Ensure your profile picture and username are appropriate and do not violate any other rules.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Content</span>
+                        <span class="rule-tag">General</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord to Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="quick-actions">
+        <button class="quick-action theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="quick-action scroll-top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const navbar = document.getElementById('navbar');
+            const heroContent = document.querySelector('.hero-content');
+            const ruleCards = document.querySelectorAll('.rule-card');
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            const themeToggleBtn = document.querySelector('.theme-toggle');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const ruleSearchInput = document.getElementById('ruleSearch');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // --- Theme Toggle (Dark/Light) ---
+            const htmlElement = document.documentElement; // Represents the <html> tag
+
+            // Function to set the theme
+            const setTheme = (theme) => {
+                htmlElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'light') {
+                    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            };
+
+            // Initialize theme on page load
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme) {
+                setTheme(currentTheme);
+            } else {
+                // Default to dark theme if no preference is stored
+                setTheme('dark');
+            }
+
+            // Add event listener for theme toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                let theme = htmlElement.getAttribute('data-theme');
+                if (theme === 'light') {
+                    setTheme('dark');
+                } else {
+                    setTheme('light');
+                }
+            });
+
+            // --- Loading Screen Logic ---
+            setTimeout(() => {
+                loadingScreen.classList.add('loaded');
+                // After loading screen fades, make navbar and hero visible
+                setTimeout(() => {
+                    navbar.classList.add('visible');
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                    // Animate rule cards and apply initial filter
+                    filterRules(); // Call filterRules once after content is loaded
+                }, 800); // Matches loading-screen transition duration
+            }, 2500); // Simulate content loading for 2.5 seconds
+
+            // --- Navbar visibility on scroll ---
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    navbar.classList.remove('visible');
+                } else {
+                    // Scrolling up
+                    navbar.classList.add('visible');
+                }
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+
+                // Show/hide scroll to top button
+                if (currentScroll > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+
+            // --- Smooth scrolling for nav links ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Check if the href is not empty to avoid errors
+                    if (this.getAttribute('href')) {
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Scroll to Top button functionality ---
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // --- Rule Search and Filter ---
+            const filterRules = () => {
+                const searchTerm = ruleSearchInput.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+                let delay = 0; // For staggered animation
+                ruleCards.forEach(card => {
+                    const title = card.querySelector('.rule-title').textContent.toLowerCase();
+                    const description = card.querySelector('.rule-description').textContent.toLowerCase();
+                    const tags = card.dataset.tags.toLowerCase();
+
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
+
+                    if (matchesSearch && matchesFilter) {
+                        card.style.display = 'block';
+                        // Add visible class with a slight delay for animation
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, delay);
+                        delay += 100; // Increment delay for next card
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('visible'); // Ensure it's hidden and animation resets
+                    }
+                });
+            };
+
+            ruleSearchInput.addEventListener('keyup', filterRules);
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    filterRules(); // Re-apply filter and search
+                });
+            });
+        });
+    </script>
+</body>
+</html>
