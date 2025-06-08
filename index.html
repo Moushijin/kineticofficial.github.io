@@ -477,6 +477,32 @@
             margin-bottom: 4rem;
         }
 
+        .rule-category-title {
+            grid-column: 1 / -1; /* Span across all columns */
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            position: relative;
+            padding-left: 1.5rem;
+            transition: all 0.3s ease; /* Smooth transition for display/opacity */
+        }
+
+        .rule-category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 100%;
+            background: var(--primary);
+            border-radius: var(--radius-sm);
+        }
+
+
         .rule-card {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -487,6 +513,9 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, border-color 0.5s ease;
             opacity: 0;
             transform: translateY(20px);
+            /* Add some responsive grid for cards */
+            display: flex;
+            flex-direction: column;
         }
         html[data-theme="light"] .rule-card {
             background: rgba(255, 255, 255, 0.8);
@@ -535,13 +564,21 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1rem;
+            flex-grow: 1; /* Make description take up available space */
         }
 
         .rule-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            margin-top: auto; /* Push tags to the bottom */
+            padding-top: 1rem; /* Add some space above tags */
+            border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
         }
+        html[data-theme="light"] .rule-tags {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
 
         .rule-tag {
             padding: 0.25rem 0.75rem;
@@ -570,6 +607,21 @@
         .severity-low { background: var(--success); }
         .severity-medium { background: var(--warning); }
         .severity-high { background: var(--danger); }
+
+        /* Highlight Style */
+        .highlight {
+            background-color: var(--warning); /* Or any color you prefer for highlighting */
+            color: var(--bg-primary); /* Text color on highlighted background */
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Ensure highlight text color adapts to light theme */
+        html[data-theme="light"] .highlight {
+            color: var(--text-primary); /* Darker text for light mode highlight */
+            background-color: var(--secondary);
+        }
+
 
         /* Quick Actions */
         .quick-actions {
@@ -627,6 +679,12 @@
         }
 
         /* Responsive Design */
+        @media (min-width: 768px) {
+            .rules-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -650,6 +708,7 @@
 
             .filter-buttons {
                 flex-wrap: wrap;
+                justify-content: center; /* Center filter buttons on mobile */
             }
 
             .quick-actions {
@@ -659,6 +718,14 @@
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .rule-category-title {
+                text-align: center;
+                padding-left: 0;
+            }
+            .rule-category-title::before {
+                display: none; /* Hide vertical bar on mobile for centered title */
             }
         }
 
@@ -719,14 +786,16 @@
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="general">General</button>
-                    <button class="filter-btn" data-filter="conduct">Conduct</button>
-                    <button class="filter-btn" data-filter="content">Content</button>
-                    <button class="filter-btn" data-filter="safety">Safety</button>
+                    <button class="filter-btn" data-filter="community">Community</button>
+                    <button class="filter-btn" data-filter="voice">Voice</button>
+                    <button class="filter-btn" data-filter="staff">Staff</button>
                 </div>
             </div>
 
             <div class="rules-grid" id="rulesGrid">
-                <div class="rule-card" data-tags="general conduct" data-severity="medium">
+
+                <h3 class="rule-category-title" data-category="general">General Rules</h3>
+                <div class="rule-card" data-tags="general" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">01</div>
@@ -735,126 +804,237 @@
                     <p class="rule-description">Treat all members with respect. Harassment, hate speech, discrimination, and personal attacks are strictly prohibited.</p>
                     <div class="rule-tags">
                         <span class="rule-tag">General</span>
-                        <span class="rule-tag">Conduct</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="content safety" data-severity="high">
-                    <span class="rule-severity severity-high" title="High Severity"></span>
-                    <div class="rule-header">
-                        <div class="rule-number">02</div>
-                        <h3 class="rule-title">No NSFW Content</h3>
-                    </div>
-                    <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including explicit, graphic, or offensive material, in any channel.</p>
-                    <div class="rule-tags">
-                        <span class="rule-tag">Content</span>
-                        <span class="rule-tag">Safety</span>
-                    </div>
-                </div>
-
-                <div class="rule-card" data-tags="conduct general" data-severity="low">
+                <div class="rule-card" data-tags="general" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
-                        <div class="rule-number">03</div>
+                        <div class="rule-number">02</div>
                         <h3 class="rule-title">No Spamming</h3>
                     </div>
                     <p class="rule-description">Avoid excessive messages, repetitive content, or self-promotion that disrupts the chat flow.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Conduct</span>
                         <span class="rule-tag">General</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="safety general" data-severity="high">
-                    <span class="rule-severity severity-high" title="High Severity"></span>
-                    <div class="rule-header">
-                        <div class="rule-number">04</div>
-                        <h3 class="rule-title">Protect Your Privacy</h3>
-                    </div>
-                    <p class="rule-description">Do not share personal information about yourself or others (e.g., addresses, phone numbers, real names without consent).</p>
-                    <div class="rule-tags">
-                        <span class="rule-tag">Safety</span>
-                        <span class="rule-tag">General</span>
-                    </div>
-                </div>
-
-                <div class="rule-card" data-tags="conduct content" data-severity="medium">
+                <div class="rule-card" data-tags="general" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
-                        <div class="rule-number">05</div>
-                        <h3 class="rule-title">No Advertising</h3>
-                    </div>
-                    <p class="rule-description">Do not advertise other Discord servers, social media, or other communities without explicit moderator permission.</p>
-                    <div class="rule-tags">
-                        <span class="rule-tag">Conduct</span>
-                        <span class="rule-tag">Content</span>
-                    </div>
-                </div>
-
-                <div class="rule-card" data-tags="general conduct" data-severity="low">
-                    <span class="rule-severity severity-low" title="Low Severity"></span>
-                    <div class="rule-header">
-                        <div class="rule-number">06</div>
-                        <h3 class="rule-title">Follow Channel Topics</h3>
-                    </div>
-                    <p class="rule-description">Keep conversations relevant to the channel topic. Off-topic discussions should be moved to appropriate channels.</p>
-                    <div class="rule-tags">
-                        <span class="rule-tag">General</span>
-                        <span class="rule-tag">Conduct</span>
-                    </div>
-                </div>
-
-                 <div class="rule-card" data-tags="conduct safety" data-severity="high">
-                    <span class="rule-severity severity-high" title="High Severity"></span>
-                    <div class="rule-header">
-                        <div class="rule-number">07</div>
-                        <h3 class="rule-title">No Cheating/Exploiting</h3>
-                    </div>
-                    <p class="rule-description">Discussions or promotion of cheating, hacking, or exploiting in games or any system is strictly forbidden.</p>
-                    <div class="rule-tags">
-                        <span class="rule-tag">Conduct</span>
-                        <span class="rule-tag">Safety</span>
-                    </div>
-                </div>
-
-                <div class="rule-card" data-tags="general safety" data-severity="medium">
-                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
-                    <div class="rule-header">
-                        <div class="rule-number">08</div>
+                        <div class="rule-number">03</div>
                         <h3 class="rule-title">English Only in Public Channels</h3>
                     </div>
                     <p class="rule-description">To ensure all moderators can understand and enforce rules, please use English in public discussion channels.</p>
                     <div class="rule-tags">
                         <span class="rule-tag">General</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="general content" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">04</div>
+                        <h3 class="rule-title">Appropriate Profile Pictures & Names</h3>
+                    </div>
+                    <p class="rule-description">Ensure your profile picture and username are appropriate and do not violate any other rules.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">Content</span>
+                    </div>
+                </div>
+
+                 <div class="rule-card" data-tags="general conduct" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">05</div>
+                        <h3 class="rule-title">No Excessive Formatting or ASCII Art Spam</h3>
+                    </div>
+                    <p class="rule-description">While creative uses of Discord's formatting are fun, avoid spamming large blocks of excessive bolding, italics, emojis, or intricate ASCII art that disrupt readability or flood the chat.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+
+                <h3 class="rule-category-title" data-category="community">Community Rules</h3>
+                <div class="rule-card" data-tags="community content safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">06</div>
+                        <h3 class="rule-title">No NSFW Content</h3>
+                    </div>
+                    <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including explicit, graphic, or offensive material, in any channel.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Content</span>
                         <span class="rule-tag">Safety</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="conduct safety" data-severity="high">
+                <div class="rule-card" data-tags="community safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">07</div>
+                        <h3 class="rule-title">Protect Your Privacy</h3>
+                    </div>
+                    <p class="rule-description">Do not share personal information about yourself or others (e.g., addresses, phone numbers, real names without consent).</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="community conduct content" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">08</div>
+                        <h3 class="rule-title">No Advertising</h3>
+                    </div>
+                    <p class="rule-description">Do not advertise other Discord servers, social media, or other communities without explicit moderator permission.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">Content</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="community conduct safety" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">09</div>
-                        <h3 class="rule-title">No Impersonation</h3>
+                        <h3 class="rule-title">No Cheating/Exploiting</h3>
                     </div>
-                    <p class="rule-description">Do not impersonate other users, staff, or public figures. This includes using similar names or profile pictures.</p>
+                    <p class="rule-description">Discussions or promotion of cheating, hacking, or exploiting in games or any system is strictly forbidden.</p>
                     <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
                         <span class="rule-tag">Conduct</span>
                         <span class="rule-tag">Safety</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="content general" data-severity="medium">
-                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                <div class="rule-card" data-tags="community conduct safety" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">10</div>
-                        <h3 class="rule-title">Appropriate Profile Pictures & Names</h3>
+                        <h3 class="rule-title">No Impersonation</h3>
                     </div>
-                    <p class="rule-description">Ensure your profile picture and username are appropriate and do not violate any other rules.</p>
+                    <p class="rule-description">Do not impersonate other users, staff, or public figures. This includes using similar names or profile pictures.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Content</span>
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">Safety</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="community conduct" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">11</div>
+                        <h3 class="rule-title">Keep Discussions Constructive</h3>
+                    </div>
+                    <p class="rule-description">We encourage healthy debate and different viewpoints, but please ensure your contributions are constructive and respectful. Avoid circular arguments or bad-faith engagement.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="community conduct" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">12</div>
+                        <h3 class="rule-title">No Unsolicited DMs or Mass Mentions</h3>
+                    </div>
+                    <p class="rule-description">Do not DM other members unless they have given explicit permission. Avoid mentioning large groups of users or roles without a clear and necessary reason.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="community general" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">13</div>
+                        <h3 class="rule-title">No Private Conversations in Public Channels</h3>
+                    </div>
+                    <p class="rule-description">If you're having an extended one-on-one discussion that isn't relevant to the general chat or a channel's topic, please move it to DMs or a private thread/voice channel.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Community</span>
                         <span class="rule-tag">General</span>
                     </div>
                 </div>
+
+
+                <h3 class="rule-category-title" data-category="voice">Voice Rules</h3>
+                <div class="rule-card" data-tags="voice general" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">14</div>
+                        <h3 class="rule-title">Follow Channel Topics (Voice)</h3>
+                    </div>
+                    <p class="rule-description">Keep conversations in voice channels relevant to the channel's designated topic. If your discussion is off-topic, please move to an appropriate channel.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Voice</span>
+                        <span class="rule-tag">General</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="voice conduct" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">15</div>
+                        <h3 class="rule-title">Respect Voice Chat Etiquette</h3>
+                    </div>
+                    <p class="rule-description">When in voice channels, minimize background noise, avoid excessive mic popping, and use push-to-talk if needed. Do not play loud music or use disruptive soundboards.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Voice</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <h3 class="rule-category-title" data-category="staff">Staff Rules</h3>
+                <div class="rule-card" data-tags="staff conduct" data-severity="high">
+                    <span class="rule-severity severity-high" title="High Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">16</div>
+                        <h3 class="rule-title">Follow Moderator Instructions</h3>
+                    </div>
+                    <p class="rule-description">Always comply with instructions given by server administrators and moderators. Their decisions are final.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Staff</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="staff conduct" data-severity="low">
+                    <span class="rule-severity severity-low" title="Low Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">17</div>
+                        <h3 class="rule-title">No Backseat Moderating</h3>
+                    </div>
+                    <p class="rule-description">While helpful intentions are appreciated, please let the moderation team handle rule enforcement. Report rule violations to a moderator directly.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Staff</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
+                <div class="rule-card" data-tags="staff conduct" data-severity="medium">
+                    <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                    <div class="rule-header">
+                        <div class="rule-number">18</div>
+                        <h3 class="rule-title">No Public Discussion of Moderation Actions</h3>
+                    </div>
+                    <p class="rule-description">If you have concerns about a moderation decision, please address them privately with a moderator. Discussing disciplinary actions in public channels is prohibited.</p>
+                    <div class="rule-tags">
+                        <span class="rule-tag">Staff</span>
+                        <span class="rule-tag">Conduct</span>
+                    </div>
+                </div>
+
             </div>
 
             <div class="text-center">
@@ -877,7 +1057,9 @@
             const loadingScreen = document.getElementById('loading-screen');
             const navbar = document.getElementById('navbar');
             const heroContent = document.querySelector('.hero-content');
-            const ruleCards = document.querySelectorAll('.rule-card');
+            const rulesGrid = document.getElementById('rulesGrid'); // Get the rules grid container
+            const ruleCards = rulesGrid.querySelectorAll('.rule-card'); // Select cards *within* the grid
+            const ruleCategoryTitles = rulesGrid.querySelectorAll('.rule-category-title');
             const scrollTopBtn = document.querySelector('.scroll-top');
             const themeToggleBtn = document.querySelector('.theme-toggle');
             const filterButtons = document.querySelectorAll('.filter-btn');
@@ -973,22 +1155,83 @@
                 });
             });
 
+            // Store original content of rule cards to reset during search
+            const originalRuleContent = {};
+            ruleCards.forEach(card => {
+                const ruleNumberElement = card.querySelector('.rule-number');
+                const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId; // Use data-ruleId if number is missing
+                const ruleTitle = card.querySelector('.rule-title');
+                const ruleDescription = card.querySelector('.rule-description');
+                originalRuleContent[ruleNumber] = {
+                    title: ruleTitle.innerHTML,
+                    description: ruleDescription.innerHTML
+                };
+            });
+
             // --- Rule Search and Filter ---
+            const highlightText = (text, searchTerm) => {
+                if (!searchTerm) return text;
+                const terms = searchTerm.split(' ').filter(word => word.length > 0);
+                if (terms.length === 0) return text;
+
+                // Escape special characters in the search terms for regex
+                const escapedTerms = terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+                const regex = new RegExp(`(${escapedTerms.join('|')})`, 'gi');
+                return text.replace(regex, '<span class="highlight">$&</span>');
+            };
+
             const filterRules = () => {
-                const searchTerm = ruleSearchInput.value.toLowerCase();
+                const searchTerm = ruleSearchInput.value.toLowerCase().trim();
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
 
-                let delay = 0; // For staggered animation
-                ruleCards.forEach(card => {
-                    const title = card.querySelector('.rule-title').textContent.toLowerCase();
-                    const description = card.querySelector('.rule-description').textContent.toLowerCase();
-                    const tags = card.dataset.tags.toLowerCase();
+                // Determine if any category titles should be shown
+                const showCategoryTitles = searchTerm === '' && activeFilter === 'all';
 
-                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                ruleCategoryTitles.forEach(title => {
+                    if (showCategoryTitles) {
+                        const category = title.dataset.category;
+                        // Only show specific category title if 'All' is active AND the category is also active
+                        // or if the category is part of the current filter and search is empty
+                        if (activeFilter === 'all' || activeFilter === category) {
+                            title.style.display = 'block';
+                            title.style.opacity = '1';
+                        } else {
+                             title.style.display = 'none';
+                             title.style.opacity = '0';
+                        }
+                    } else {
+                        title.style.display = 'none';
+                        title.style.opacity = '0';
+                    }
+                });
+
+                let delay = 0;
+                ruleCards.forEach(card => {
+                    const ruleNumberElement = card.querySelector('.rule-number');
+                    const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId;
+                    const originalTitle = originalRuleContent[ruleNumber].title;
+                    const originalDescription = originalRuleContent[ruleNumber].description;
+
+                    const titleText = originalTitle.toLowerCase();
+                    const descriptionText = originalDescription.toLowerCase();
+
+                    const matchesSearch = searchTerm === '' ||
+                                          titleText.includes(searchTerm) ||
+                                          descriptionText.includes(searchTerm);
+
+                    const tags = card.dataset.tags.toLowerCase();
                     const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
 
+                    // Reset content before applying new highlights or hiding
+                    card.querySelector('.rule-title').innerHTML = originalTitle;
+                    card.querySelector('.rule-description').innerHTML = originalDescription;
+
                     if (matchesSearch && matchesFilter) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex'; // Use flex to maintain card structure
+                        if (searchTerm) {
+                            card.querySelector('.rule-title').innerHTML = highlightText(originalTitle, searchTerm);
+                            card.querySelector('.rule-description').innerHTML = highlightText(originalDescription, searchTerm);
+                        }
                         // Add visible class with a slight delay for animation
                         setTimeout(() => {
                             card.classList.add('visible');
@@ -1010,6 +1253,9 @@
                     filterRules(); // Re-apply filter and search
                 });
             });
+
+            // Initial call to filterRules to ensure correct visibility on load
+            filterRules();
         });
     </script>
 </body>
