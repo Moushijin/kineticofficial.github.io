@@ -62,18 +62,17 @@
                     </div>
                     <div class="filter-buttons">
                         <button class="filter-btn active" data-filter="all" aria-label="Show all channels">All</button>
-                        <button class="filter-btn" data-filter="info" aria-label="Filter Information channels">Info</button>
-                        <button class="filter-btn" data-filter="text" aria-label="Filter Text channels">Text</button>
-                        <button class="filter-btn" data-filter="voice" aria-label="Filter Voice channels">Voice</button>
-                        <button class="filter-btn" data-filter="games" aria-label="Filter Game channels">Games</button>
-                        <button class="filter-btn" data-filter="staff" aria-label="Filter Staff channels">Staff</button>
+                        <button class="filter-btn" data-filter="server-info" aria-label="Filter Server Information channels">Server Info</button>
+                        <button class="filter-btn" data-filter="tryouts" aria-label="Filter Tryouts channels">Tryouts</button>
+                        <button class="filter-btn" data-filter="community" aria-label="Filter Community channels">Community</button>
+                        <button class="filter-btn" data-filter="scrims" aria-label="Filter Scrims channels">Scrims</button>
                     </div>
                 </div>
 
                 <div class="rules-grid" id="channelsGrid">
 
-                    <h3 class="rule-category-title" data-category="info">Information & Announcements</h3>
-                    <div class="rule-card" data-tags="info entrance new-members important" data-channel-type="text">
+                    <h3 class="rule-category-title" data-category="server-info">Server Information</h3>
+                    <div class="rule-card" data-tags="server-info entrance welcome new-members important" data-channel-type="text">
                         <div class="rule-header">
                             <div class="rule-number"><i class="fas fa-door-open"></i></div>
                             <h3 class="rule-title">#entrance</h3>
@@ -81,100 +80,102 @@
                         <p class="rule-description">This is the first channel new members see. Provides a quick overview and guides you on how to get started in the server. A must-read for everyone joining!</p>
                         <div class="rule-tags">
                             <span class="rule-tag">#Info</span>
-                            <span class="rule-tag">#NewMembers</span>
+                            <span class="rule-tag">#Welcome</span>
                         </div>
                     </div>
-                    <div class="rule-card" data-tags="info announcements updates welcome important" data-channel-type="text">
+                    <div class="rule-card" data-tags="server-info announcements updates important" data-channel-type="text">
                         <div class="rule-header">
                             <div class="rule-number"><i class="fas fa-bullhorn"></i></div>
-                            <h3 class="rule-title">#announcements</h3>
+                            <h3 class="rule-title">#annc</h3>
                         </div>
-                        <p class="rule-description">Stay updated with important server news, event announcements, major changes, and official updates from the staff team. Only staff can post here.</p>
+                        <p class="rule-description">Stay updated with important server announcements, official notices, and general news from the staff team. Only staff can post here.</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Info</span>
+                            <span class="rule-tag">#Announcements</span>
                             <span class="rule-tag">#Updates</span>
                         </div>
                     </div>
-                    <div class="rule-card" data-tags="info rules guidelines welcome" data-channel-type="text">
+                    <div class="rule-card" data-tags="server-info news server-updates" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-scroll"></i></div>
-                            <h3 class="rule-title">#rules</h3>
+                            <div class="rule-number"><i class="fas fa-newspaper"></i></div>
+                            <h3 class="rule-title">#news</h3>
                         </div>
-                        <p class="rule-description">Read our server's community guidelines and rules to ensure a positive and respectful environment for everyone. Required reading for all members.</p>
+                        <p class="rule-description">This channel is used to share specific server news, such as updates to our website, new features, or community milestones.</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Info</span>
-                            <span class="rule-tag">#Guidelines</span>
+                            <span class="rule-tag">#News</span>
+                            <span class="rule-tag">#ServerInfo</span>
                         </div>
                     </div>
-                    <div class="rule-card" data-tags="info welcome new-members join" data-channel-type="text">
+                    <div class="rule-card" data-tags="server-info giveaways contests prizes" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-handshake"></i></div>
-                            <h3 class="rule-title">#welcome</h3>
+                            <div class="rule-number"><i class="fas fa-gift"></i></div>
+                            <h3 class="rule-title">#gws</h3>
                         </div>
-                        <p class="rule-description">A warm greeting for new members joining our server! Find basic info and introduce yourself to the community here.</p>
+                        <p class="rule-description">Participate in exciting giveaways and contests here for a chance to win various prizes and rewards!</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Info</span>
-                            <span class="rule-tag">#NewMembers</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="info roles self-assign" data-channel-type="text">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-user-tag"></i></div>
-                            <h3 class="rule-title">#roles</h3>
-                        </div>
-                        <p class="rule-description">Assign yourself various roles to gain access to specific channels, express your interests, or show off your game preferences.</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Info</span>
-                            <span class="rule-tag">#Roles</span>
+                            <span class="rule-tag">#Giveaways</span>
+                            <span class="rule-tag">#Contests</span>
                         </div>
                     </div>
 
-                    <h3 class="rule-category-title" data-category="text">General & Community Text Channels</h3>
-                    <div class="rule-card" data-tags="text general chat community" data-channel-type="text">
+                    <h3 class="rule-category-title" data-category="tryouts">Tryouts</h3>
+                    <div class="rule-card" data-tags="tryouts tryout application recruitment" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-user-plus"></i></div>
+                            <h3 class="rule-title">#tryout</h3>
+                        </div>
+                        <p class="rule-description">This is where you can sign up or get information about ongoing player tryouts for our competitive teams.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Recruitment</span>
+                            <span class="rule-tag">#Tryouts</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="tryouts rules guidelines tryout-rules important" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-clipboard-list"></i></div>
+                            <h3 class="rule-title">#rules</h3>
+                        </div>
+                        <p class="rule-description">Find the specific rules and guidelines that apply to all tryout participants. Please read these carefully before signing up.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#TryoutRules</span>
+                            <span class="rule-tag">#Guidelines</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="tryouts results announcements tryout-results" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-poll-h"></i></div>
+                            <h3 class="rule-title">#results</h3>
+                        </div>
+                        <p class="rule-description">Check this channel for the official results and announcements regarding completed tryouts.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#TryoutResults</span>
+                            <span class="rule-tag">#Announcements</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="community">Community</h3>
+                    <div class="rule-card" data-tags="community general chat discussion social" data-channel-type="text">
                         <div class="rule-header">
                             <div class="rule-number"><i class="fas fa-comments"></i></div>
-                            <h3 class="rule-title">#general-chat</h3>
+                            <h3 class="rule-title">#general</h3>
                         </div>
                         <p class="rule-description">The main hub for all casual conversations, discussions, and socializing. Feel free to chat about anything within server rules.</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#General</span>
                             <span class="rule-tag">#Chat</span>
+                            <span class="rule-tag">#Social</span>
                         </div>
                     </div>
-                    <div class="rule-card" data-tags="text media memes screenshots art" data-channel-type="text">
+                    <div class="rule-card" data-tags="community media memes images art" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-image"></i></div>
-                            <h3 class="rule-title">#media-share</h3>
+                            <div class="rule-number"><i class="fas fa-photo-video"></i></div>
+                            <h3 class="rule-title">#media</h3>
                         </div>
-                        <p class="rule-description">Share your favorite memes, funny images, GIFs, screenshots, and other visual content here. Keep it appropriate!</p>
+                        <p class="rule-description">Share your favorite memes, funny images, GIFs, and other visual content here. Keep it appropriate and fun!</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Media</span>
+                            <span class="rule-tag">#MediaShare</span>
                             <span class="rule-tag">#Memes</span>
                         </div>
                     </div>
-                    <div class="rule-card" data-tags="text off-topic casual hobbies" data-channel-type="text">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-coffee"></i></div>
-                            <h3 class="rule-title">#off-topic</h3>
-                        </div>
-                        <p class="rule-description">A channel for discussions that don't fit into other categories. Talk about your day, hobbies, or anything else that comes to mind.</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Off-Topic</span>
-                            <span class="rule-tag">#Casual</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="text commands bots support" data-channel-type="text">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-robot"></i></div>
-                            <h3 class="rule-title">#bot-commands</h3>
-                        </div>
-                        <p class="rule-description">Use this channel to interact with our various server bots. Keep bot commands here to prevent spam in other channels.</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Bots</span>
-                            <span class="rule-tag">#Commands</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="text feedback suggestions ideas support" data-channel-type="text">
+                    <div class="rule-card" data-tags="community suggestions feedback ideas support" data-channel-type="text">
                         <div class="rule-header">
                             <div class="rule-number"><i class="fas fa-lightbulb"></i></div>
                             <h3 class="rule-title">#suggestions</h3>
@@ -185,78 +186,59 @@
                             <span class="rule-tag">#Ideas</span>
                         </div>
                     </div>
-
-                    <h3 class="rule-category-title" data-category="voice">Voice Channels</h3>
-                    <div class="rule-card" data-tags="voice general hangout talk" data-channel-type="voice">
+                    <div class="rule-card" data-tags="community commands bots bot-interaction" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-microphone"></i></div>
-                            <h3 class="rule-title">General Voice Chat</h3>
+                            <div class="rule-number"><i class="fas fa-robot"></i></div>
+                            <h3 class="rule-title">#cmds</h3>
                         </div>
-                        <p class="rule-description">Hop in here to chill, chat, and hang out with other members. Perfect for casual voice conversations.</p>
+                        <p class="rule-description">Use this channel to interact with our various server bots. Keep bot commands here to prevent spam in other channels.</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Voice</span>
-                            <span class="rule-tag">#Hangout</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="voice gaming party LFG" data-channel-type="voice">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-gamepad"></i></div>
-                            <h3 class="rule-title">Gaming Voice Chat</h3>
-                        </div>
-                        <p class="rule-description">Dedicated voice channel for LFG (looking for group) and in-game communication. Coordinate with your teammates here.</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Voice</span>
-                            <span class="rule-tag">#Gaming</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="voice afk idle private" data-channel-type="voice">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-headphones-alt"></i></div>
-                            <h3 class="rule-title">AFK Channel</h3>
-                        </div>
-                        <p class="rule-description">If you're inactive in other voice channels for too long, you'll be automatically moved here. Join back when you're ready!</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Voice</span>
-                            <span class="rule-tag">#AFK</span>
+                            <span class="rule-tag">#Bots</span>
+                            <span class="rule-tag">#Commands</span>
                         </div>
                     </div>
 
-                    <h3 class="rule-category-title" data-category="games">Game-Specific Channels</h3>
-                    <div class="rule-card" data-tags="games volleyball legends strategies scrims" data-channel-type="text">
+                    <h3 class="rule-category-title" data-category="scrims">Scrims</h3>
+                    <div class="rule-card" data-tags="scrims scrim-requests LFG schedule" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-volleyball-ball"></i></div>
-                            <h3 class="rule-title">#vl-discussion</h3>
+                            <div class="rule-number"><i class="fas fa-bullseye"></i></div>
+                            <h3 class="rule-title">#scrims-req</h3>
                         </div>
-                        <p class="rule-description">Discuss strategies, tips, and everything related to Volleyball Legends. Share your best plays and ask for advice.</p>
+                        <p class="rule-description">This channel is for making scrim requests, finding opponents, or scheduling practice matches for your team.</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Games</span>
-                            <span class="rule-tag">#VL</span>
-                        </div>
-                    </div>
-                    <div class="rule-card" data-tags="games lfg scrims recruitment" data-channel-type="text">
-                        <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-user-friends"></i></div>
-                            <h3 class="rule-title">#lfg-scrims</h3>
-                        </div>
-                        <p class="rule-description">Looking for a team for scrims or just want to find players to queue with? Post your LFG requests here!</p>
-                        <div class="rule-tags">
-                            <span class="rule-tag">#Games</span>
+                            <span class="rule-tag">#Scrims</span>
                             <span class="rule-tag">#LFG</span>
                         </div>
                     </div>
-
-                    <h3 class="rule-category-title" data-category="staff">Staff & Moderation Channels</h3>
-                    <div class="rule-card" data-tags="staff moderation support help private" data-channel-type="text">
+                    <div class="rule-card" data-tags="scrims results match-results scores" data-channel-type="text">
                         <div class="rule-header">
-                            <div class="rule-number"><i class="fas fa-shield-alt"></i></div>
-                            <h3 class="rule-title">#mod-chat</h3>
+                            <div class="rule-number"><i class="fas fa-clipboard-check"></i></div>
+                            <h3 class="rule-title">#scrim-results</h3>
                         </div>
-                        <p class="rule-description">A private channel for staff members to discuss moderation, server issues, and planning. (Only visible to staff).</p>
+                        <p class="rule-description">View the official results and scores from recent scrim matches. See how teams performed!</p>
                         <div class="rule-tags">
-                            <span class="rule-tag">#Staff</span>
-                            <span class="rule-tag">#Private</span>
+                            <span class="rule-tag">#Results</span>
+                            <span class="rule-tag">#Scrims</span>
                         </div>
                     </div>
+                    <div class="rule-card" data-tags="scrims recordings vods gameplay-videos" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-video"></i></div>
+                            <h3 class="rule-title">#scrim-recordings</h3>
+                        </div>
+                        <p class="rule-description">Find VODs (video on demand) and recordings of past scrim matches. Analyze gameplay or re-watch your favorite moments.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Recordings</span>
+                            <span class="rule-tag">#VODs</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="section-footer">
+                    <p class="note-text">
+                        <i class="fas fa-info-circle"></i> **Note:** Staff channels and other private channels are not listed here for security and privacy reasons.
+                    </p>
                 </div>
 
                 <div class="text-center">
