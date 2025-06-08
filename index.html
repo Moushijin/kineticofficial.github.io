@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinetic Official - Discord Server Rules</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -37,21 +37,17 @@
             --radius-lg: 20px;
             --radius-full: 9999px;
 
-            /* Light Theme Variables (Optional, but good to have) */
+            /* Light Theme Variables */
             --light-primary: #5A67D8;
             --light-primary-dark: #434CB5;
-
             --light-bg-0: #F8FAFC;
             --light-bg-1: #EBF1F7;
             --light-bg-2: #D9E1E8;
-
             --light-text-dark: #1E293B;
             --light-text-muted: #4B5563;
             --light-text-accent: #6B7280;
-
             --light-border-color: rgba(0, 0, 0, 0.08);
             --light-border-hover: rgba(0, 0, 0, 0.15);
-
             --light-shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.08);
             --light-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
@@ -71,6 +67,7 @@
             --border-hover: var(--light-border-hover);
             --shadow-subtle: var(--light-shadow-subtle);
             --shadow-lg: var(--light-shadow-lg);
+            --warning-orange: #F59E0B; /* Keep consistent for highlighting */
         }
 
         * {
@@ -120,7 +117,9 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
-            gap: 2.5rem;
+            gap: 1.5rem; /* Reduced gap for a tighter look */
+            padding: 1rem; /* Add some padding for smaller screens */
+            text-align: center;
         }
 
         .loading-screen.loaded {
@@ -129,60 +128,42 @@
             pointer-events: none;
         }
 
-        .loading-logo-wrapper {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            animation: pulseFade 2s infinite ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .loading-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Larger and more responsive */
+            font-weight: 900;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em; /* Increased letter spacing */
+            line-height: 1.2;
+            margin-bottom: 2rem; /* Space before bars */
+            opacity: 0; /* Will animate in with JS */
+            transform: translateY(20px);
+            animation: fadeInTranslateY 0.8s ease forwards;
+            animation-delay: 0.2s;
         }
 
-        .loading-logo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: spinFast 1.5s linear infinite;
-        }
-
-        @keyframes spinFast {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes pulseFade {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .loading-messages {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            min-height: 1.5em; /* To prevent layout shift */
-            text-align: center;
+        @keyframes fadeInTranslateY {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .loading-bars-container {
             display: flex;
-            gap: 5px;
-            height: 20px;
+            gap: 8px; /* Wider gap between bars */
+            height: 25px; /* Taller bars */
             align-items: flex-end;
-            margin-top: 1rem;
+            margin-bottom: 2rem; /* Space after bars */
         }
 
         .loading-bar-segment {
-            width: 8px;
+            width: 10px; /* Wider segments */
             height: 5px;
             background: linear-gradient(to top, var(--primary-blue), var(--primary-dark-blue));
             border-radius: 2px;
-            animation: barWave 1.2s ease-in-out infinite alternate;
+            animation: simpleBarWave 1.2s ease-in-out infinite alternate;
             transition: background 0.3s ease;
         }
 
@@ -194,10 +175,38 @@
         .loading-bar-segment:nth-child(6) { animation-delay: 0.5s; }
         .loading-bar-segment:nth-child(7) { animation-delay: 0.6s; }
 
-        @keyframes barWave {
+        @keyframes simpleBarWave {
             0% { height: 5px; opacity: 0.6; }
-            50% { height: 20px; opacity: 1; }
+            50% { height: 25px; opacity: 1; } /* Max height for wave */
             100% { height: 5px; opacity: 0.6; }
+        }
+
+        .loading-divider {
+            width: 150px; /* Length of the divider */
+            height: 2px;
+            background-color: var(--text-muted);
+            margin: 2rem 0; /* Space above and below divider */
+            opacity: 0.7;
+        }
+
+        .loading-troubleshoot-messages {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            max-width: 400px;
+        }
+
+        .loading-troubleshoot-messages a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .loading-troubleshoot-messages a:hover {
+            color: var(--primary-dark-blue);
+            text-decoration: underline;
         }
 
         /* --- Navbar --- */
@@ -236,7 +245,7 @@
             gap: 0.75rem;
             font-size: 1.6rem;
             font-weight: 800;
-            color: var(--text-light); /* Changed to solid color, can be gradient */
+            color: var(--text-light);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -329,10 +338,10 @@
             z-index: 0;
             transition: background 0.6s ease;
         }
+
         html[data-theme="light"] .hero-bg-overlay {
             background: radial-gradient(circle at 50% 50%, rgba(90, 103, 216, 0.08) 0%, transparent 60%);
         }
-
 
         .hero-content {
             position: relative;
@@ -415,11 +424,13 @@
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
+
         html[data-theme="light"] .btn-secondary {
             background: rgba(0, 0, 0, 0.05);
             color: var(--light-text-dark);
             border: 1px solid var(--light-border-color);
         }
+
         html[data-theme="light"] .btn-secondary:hover {
             background: rgba(0, 0, 0, 0.1);
             border-color: var(--light-border-hover);
@@ -432,6 +443,7 @@
             border-top: 1px solid var(--border-color);
             transition: background 0.6s ease, border-color 0.6s ease;
         }
+
         html[data-theme="light"] .rules-section {
             background: var(--light-bg-1);
         }
@@ -484,6 +496,7 @@
             transition: all 0.3s ease;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
+
         html[data-theme="light"] .search-input {
             background: var(--light-bg-2);
             color: var(--light-text-dark);
@@ -526,6 +539,7 @@
             transition: all 0.3s ease;
             box-shadow: var(--shadow-subtle);
         }
+
         html[data-theme="light"] .filter-btn {
             background: var(--light-bg-2);
             color: var(--light-text-muted);
@@ -564,7 +578,7 @@
             text-align: left;
             position: relative;
             padding-left: 1.8rem;
-            transition: opacity 0.3s ease, transform 0.3s ease; /* For hiding/showing */
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .rule-category-title::before {
@@ -576,7 +590,7 @@
             width: 10px;
             height: 80%;
             background: var(--primary-blue);
-            border-radius: 2px; /* Smoother radius */
+            border-radius: 2px;
         }
 
         .rule-card {
@@ -592,6 +606,7 @@
             flex-direction: column;
             box-shadow: var(--shadow-subtle);
         }
+
         html[data-theme="light"] .rule-card {
             background: var(--light-bg-2);
         }
@@ -653,6 +668,7 @@
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         html[data-theme="light"] .rule-tags {
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
@@ -666,6 +682,7 @@
             font-weight: 500;
             transition: background 0.3s ease, color 0.3s ease;
         }
+
         html[data-theme="light"] .rule-tag {
             background: rgba(90, 103, 216, 0.15);
             color: var(--light-primary-dark);
@@ -678,7 +695,7 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for severity dots */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         }
 
         .severity-low { background: var(--accent-teal); }
@@ -692,8 +709,9 @@
             padding: 1px 3px;
             border-radius: 4px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            font-weight: 600; /* Make highlighted text stand out more */
+            font-weight: 600;
         }
+
         html[data-theme="light"] .highlight {
             color: var(--light-text-dark);
             background-color: var(--warning-orange);
@@ -729,7 +747,7 @@
         .quick-action:hover {
             transform: scale(1.1);
             background: var(--primary-dark-blue);
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4); /* Subtle shadow on hover */
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
         }
 
         /* Theme Toggle */
@@ -739,15 +757,18 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-subtle);
         }
+
         html[data-theme="light"] .theme-toggle {
             background: var(--light-bg-2);
             color: var(--light-text-dark);
             border: 1px solid var(--light-border-color);
         }
+
         .theme-toggle:hover {
             background: var(--bg-dark-1);
             border-color: var(--primary-blue);
         }
+
         html[data-theme="light"] .theme-toggle:hover {
             background: var(--light-bg-1);
             border-color: var(--light-primary);
@@ -781,6 +802,9 @@
             }
             .hero-subtitle {
                 font-size: 1.1rem;
+            }
+            .loading-text {
+                font-size: clamp(2rem, 7vw, 3.5rem);
             }
         }
 
@@ -864,15 +888,12 @@
                 font-size: 0.9rem;
             }
         }
-
     </style>
 </head>
 <body>
+
     <div class="loading-screen" id="loading-screen">
-        <div class="loading-logo-wrapper">
-            <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
-        </div>
-        <div class="loading-messages" id="loading-messages"></div>
+        <h1 class="loading-text">KINETIC OFFICIAL</h1>
         <div class="loading-bars-container">
             <div class="loading-bar-segment"></div>
             <div class="loading-bar-segment"></div>
@@ -882,11 +903,16 @@
             <div class="loading-bar-segment"></div>
             <div class="loading-bar-segment"></div>
         </div>
+        <div class="loading-divider"></div>
+        <div class="loading-troubleshoot-messages">
+            <p>&bull; Taking too long? Try refreshing.</p>
+            <p>&bull; <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer">Join the Discord Server</a> if you're facing any further issues.</p>
+        </div>
     </div>
 
     <nav class="navbar" id="navbar">
         <div class="nav-content container">
-            <a href="#" class="nav-logo">
+            <a href="#hero" class="nav-logo">
                 <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
                 Kinetic
             </a>
@@ -909,7 +935,7 @@
             </p>
             <div class="hero-actions">
                 <a href="#rules" class="btn btn-primary"><i class="fas fa-book"></i> View Rules</a>
-                <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-discord"></i> Join Discord</a>
+                <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-discord"></i> Join Discord</a>
             </div>
         </div>
     </section>
@@ -927,16 +953,15 @@
                     <i class="fas fa-search search-icon"></i>
                 </div>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="general">General</button>
-                    <button class="filter-btn" data-filter="community">Community</button>
-                    <button class="filter-btn" data-filter="voice">Voice</button>
-                    <button class="filter-btn" data-filter="staff">Staff</button>
+                    <button class="filter-btn active" data-filter="all" aria-label="Show all rules">All</button>
+                    <button class="filter-btn" data-filter="general" aria-label="Filter General rules">General</button>
+                    <button class="filter-btn" data-filter="community" aria-label="Filter Community rules">Community</button>
+                    <button class="filter-btn" data-filter="voice" aria-label="Filter Voice rules">Voice</button>
+                    <button class="filter-btn" data-filter="staff" aria-label="Filter Staff rules">Staff</button>
                 </div>
             </div>
 
             <div class="rules-grid" id="rulesGrid">
-
                 <h3 class="rule-category-title" data-category="general">General Conduct</h3>
                 <div class="rule-card" data-tags="general" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
@@ -949,7 +974,6 @@
                         <span class="rule-tag">#General</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="general" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
@@ -961,7 +985,6 @@
                         <span class="rule-tag">#General</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="general language" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -974,7 +997,6 @@
                         <span class="rule-tag">#Language</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="general content profiles" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -988,8 +1010,7 @@
                         <span class="rule-tag">#Profiles</span>
                     </div>
                 </div>
-
-                 <div class="rule-card" data-tags="general conduct formatting" data-severity="low">
+                <div class="rule-card" data-tags="general conduct formatting" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">05</div>
@@ -1001,7 +1022,6 @@
                         <span class="rule-tag">#Conduct</span>
                     </div>
                 </div>
-
 
                 <h3 class="rule-category-title" data-category="community">Community Engagement</h3>
                 <div class="rule-card" data-tags="community content safety" data-severity="high">
@@ -1017,7 +1037,6 @@
                         <span class="rule-tag">#Safety</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community safety privacy" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
@@ -1031,7 +1050,6 @@
                         <span class="rule-tag">#Privacy</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community conduct content advertising" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -1045,7 +1063,6 @@
                         <span class="rule-tag">#Advertising</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community conduct safety integrity" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
@@ -1059,7 +1076,6 @@
                         <span class="rule-tag">#Integrity</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community conduct safety impersonation" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
@@ -1073,7 +1089,6 @@
                         <span class="rule-tag">#Impersonation</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community conduct discussion" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
@@ -1086,7 +1101,6 @@
                         <span class="rule-tag">#Discussion</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community conduct dms mentions" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -1100,7 +1114,6 @@
                         <span class="rule-tag">#Mentions</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="community general channels" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
@@ -1113,7 +1126,6 @@
                         <span class="rule-tag">#Channels</span>
                     </div>
                 </div>
-
 
                 <h3 class="rule-category-title" data-category="voice">Voice Chat Etiquette</h3>
                 <div class="rule-card" data-tags="voice general" data-severity="low">
@@ -1128,7 +1140,6 @@
                         <span class="rule-tag">#General</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="voice conduct audio" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -1155,7 +1166,6 @@
                         <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="staff conduct moderation" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
@@ -1168,7 +1178,6 @@
                         <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
-
                 <div class="rule-card" data-tags="staff conduct moderation" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
@@ -1181,18 +1190,18 @@
                         <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="text-center">
-                <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord</a>
+                <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord</a>
             </div>
         </div>
     </section>
 
     <div class="quick-actions">
         <button class="quick-action theme-toggle" aria-label="Toggle dark/light theme">
-            <i class="fas fa-sun"></i> </button>
+            <i class="fas fa-sun"></i>
+        </button>
         <button class="quick-action scroll-top" aria-label="Scroll to top">
             <i class="fas fa-arrow-up"></i>
         </button>
@@ -1201,8 +1210,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const loadingScreen = document.getElementById('loading-screen');
-            const loadingMessages = document.getElementById('loading-messages');
-            const progressBar = document.getElementById('progressBar'); // This is no longer used but kept for consistency in removal.
+            const loadingText = document.querySelector('.loading-text');
             const navbar = document.getElementById('navbar');
             const heroContent = document.querySelector('.hero-content');
             const rulesGrid = document.getElementById('rulesGrid');
@@ -1214,21 +1222,6 @@
             const ruleSearchInput = document.getElementById('ruleSearch');
             const navLinks = document.querySelectorAll('.nav-link');
             const htmlElement = document.documentElement;
-
-            // --- Loading Screen Messages ---
-            const messages = [
-                "Initializing connection...",
-                "Loading community data...",
-                "Optimizing rule engine...",
-                "Syncing server protocols...",
-                "Preparing your experience..."
-            ];
-            let messageIndex = 0;
-
-            const displayNextMessage = () => {
-                loadingMessages.textContent = messages[messageIndex];
-                messageIndex = (messageIndex + 1) % messages.length;
-            };
 
             // --- Theme Toggle (Dark/Light) ---
             const setTheme = (theme) => {
@@ -1246,7 +1239,7 @@
             if (currentTheme) {
                 setTheme(currentTheme);
             } else {
-                setTheme('dark');
+                setTheme('dark'); // Default to dark if no theme is set
             }
 
             themeToggleBtn.addEventListener('click', () => {
@@ -1259,33 +1252,32 @@
             });
 
             // --- Loading Screen Logic ---
-            let progress = 0;
-            const loadingInterval = setInterval(() => {
-                progress += 100 / (messages.length * 1.5); // Adjust speed based on number of messages and total time
-                displayNextMessage(); // Show next message with each progress increment
-                // For the bar wave animation, we don't need a numerical progress bar,
-                // the `barWave` animation handles the visual progress.
-                // We'll just control the total duration of the loading screen.
+            // Removed previous complex loading text overlay as it's not needed for the new design
+            // The main loading logic will simply fade out the screen after a delay.
 
-                if (progress >= 100) {
-                    clearInterval(loadingInterval);
-                    setTimeout(() => {
-                        loadingScreen.classList.add('loaded');
-                        setTimeout(() => {
-                            navbar.classList.add('visible');
-                            heroContent.style.opacity = '1';
-                            heroContent.style.transform = 'translateY(0)';
-                            filterRules(); // Initial filter and animation of cards
-                        }, 700); // Matches loading-screen fade transition
-                    }, 500); // Small delay after "progress" completes for visual effect
-                }
-            }, 500); // Update message every 0.5 seconds for a total of approx 3.75 seconds
+            const finishLoading = () => {
+                loadingScreen.classList.add('loaded');
+                setTimeout(() => {
+                    navbar.classList.add('visible');
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                    filterRules(); // Initial filter and animation of cards
+                }, 700); // Matches loading-screen fade transition
+            };
+
+            // Simulate loading time
+            setTimeout(() => {
+                loadingText.style.opacity = '1'; // Make text visible after a brief moment
+                loadingText.style.transform = 'translateY(0)';
+                finishLoading();
+            }, 1500); // Adjust this value to control how long the loading screen is visible (e.g., 1500ms = 1.5 seconds)
 
             // --- Navbar visibility on scroll ---
             let lastScrollTop = 0;
             window.addEventListener('scroll', () => {
                 let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
+                // Hide navbar on scroll down, show on scroll up (or at top)
                 if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
                     navbar.classList.remove('visible');
                 } else {
@@ -1293,12 +1285,36 @@
                 }
                 lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 
+                // Show/hide scroll to top button
                 if (currentScroll > 400) {
                     scrollTopBtn.classList.add('visible');
                 } else {
                     scrollTopBtn.classList.remove('visible');
                 }
+
+                // Highlight active nav link based on scroll position
+                let currentSectionId = '';
+                const sections = document.querySelectorAll('section'); // Re-query sections for consistency
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - navbar.offsetHeight - 150 && pageYOffset < sectionTop + sectionHeight - navbar.offsetHeight - 150) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentSectionId)) {
+                        link.classList.add('active');
+                    }
+                });
             });
+
+            // Set initial navbar visibility (important for refresh on scrolled page)
+            if (window.pageYOffset === 0) {
+                navbar.classList.add('visible');
+            }
 
             // --- Smooth scrolling for nav links ---
             navLinks.forEach(link => {
@@ -1306,33 +1322,12 @@
                     e.preventDefault();
                     document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
                     this.classList.add('active');
-
                     const targetId = this.getAttribute('href');
                     if (targetId) {
                         document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
+                            behavior: 'smooth',
+                            block: 'start' // Scroll to the start of the section
                         });
-                    }
-                });
-            });
-
-            // Highlight active nav link based on scroll position
-            const sections = document.querySelectorAll('section');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    // Adjusted offset to make activation feel more natural when section enters view
-                    if (pageYOffset >= sectionTop - navbar.offsetHeight - 100) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
                     }
                 });
             });
@@ -1349,7 +1344,7 @@
             const originalRuleContent = {};
             ruleCards.forEach(card => {
                 const ruleNumberElement = card.querySelector('.rule-number');
-                const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId;
+                const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent.trim() : card.dataset.ruleId;
                 const ruleTitle = card.querySelector('.rule-title');
                 const ruleDescription = card.querySelector('.rule-description');
                 originalRuleContent[ruleNumber] = {
@@ -1361,11 +1356,12 @@
             // --- Rule Search and Filter ---
             const highlightText = (text, searchTerm) => {
                 if (!searchTerm) return text;
-                const terms = searchTerm.split(' ').filter(word => word.length > 0);
+                const terms = searchTerm.split(/\s+/).filter(word => word.length > 0);
                 if (terms.length === 0) return text;
 
                 const escapedTerms = terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
                 const regex = new RegExp(`(${escapedTerms.join('|')})`, 'gi');
+
                 return text.replace(regex, '<span class="highlight">$&</span>');
             };
 
@@ -1375,11 +1371,12 @@
                 const isSearching = searchTerm !== '';
 
                 const categoriesPresent = new Set();
-                let animationDelay = 0;
 
+                let animationDelay = 0;
                 ruleCards.forEach(card => {
                     const ruleNumberElement = card.querySelector('.rule-number');
-                    const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId;
+                    const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent.trim() : card.dataset.ruleId;
+
                     const originalTitle = originalRuleContent[ruleNumber].title;
                     const originalDescription = originalRuleContent[ruleNumber].description;
 
@@ -1405,10 +1402,10 @@
                         card.style.animationDelay = `${animationDelay}ms`;
                         card.classList.add('visible');
                         animationDelay += 70;
-                        // Add the primary category of the card to the set if it's visible
-                        const cardCategory = card.closest('.rules-grid').querySelector(`[data-category="${tags.split(' ')[0]}"]`);
-                        if (cardCategory) {
-                             categoriesPresent.add(cardCategory.dataset.category);
+
+                        const primaryTag = tags.split(' ')[0];
+                        if (primaryTag) {
+                            categoriesPresent.add(primaryTag);
                         }
                     } else {
                         card.style.display = 'none';
@@ -1417,19 +1414,16 @@
                     }
                 });
 
-                // Control category titles visibility
                 ruleCategoryTitles.forEach(title => {
                     const category = title.dataset.category;
-                    // If searching AND no cards in this category are visible, hide the title.
-                    // Otherwise, display it.
-                    if (isSearching && !categoriesPresent.has(category)) {
-                         title.style.display = 'none';
+                    if (activeFilter === 'all' && !isSearching) {
+                        title.style.display = 'block';
+                    } else if (activeFilter !== 'all' && category === activeFilter) {
+                        title.style.display = 'block';
+                    } else if (isSearching && categoriesPresent.has(category)) {
+                        title.style.display = 'block';
                     } else {
-                         title.style.display = 'block';
-                         // If a filter is active and it's not 'all' and it doesn't match this category, hide it.
-                         if (activeFilter !== 'all' && category !== activeFilter) {
-                             title.style.display = 'none';
-                         }
+                        title.style.display = 'none';
                     }
                 });
             };
@@ -1443,8 +1437,17 @@
                     filterRules();
                 });
             });
+
+            // Initial call to set active nav link and filter rules after loading screen
+            setTimeout(() => {
+                const initialSection = document.getElementById('hero');
+                if (initialSection) {
+                    const heroLink = document.querySelector('a[href="#hero"]');
+                    if (heroLink) heroLink.classList.add('active');
+                }
+                filterRules();
+            }, 1000);
         });
     </script>
 </body>
 </html>
-j
