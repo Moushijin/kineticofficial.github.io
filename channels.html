@@ -1,1 +1,267 @@
 
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Official - Channel Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+
+    <div class="loading-screen" id="loading-screen">
+        <h1 class="loading-text">KINETIC OFFICIAL</h1>
+        <div class="loading-bars-container">
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+        </div>
+        <div class="loading-divider"></div>
+        <div class="loading-troubleshoot-messages">
+            <p>&bull; Taking too long? Try refreshing.</p>
+            <p>&bull; <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer">Join the Discord Server</a> if you're facing any further issues.</p>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
+                Kinetic
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rules.html" class="nav-link">Rules</a></li>
+                <li><a href="channels.html" class="nav-link active">Channel Guide</a></li>
+                <li><a href="roles.html" class="nav-link">Roles Info</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="channels-section" id="channel-guide">
+            <div class="container text-left">
+                <div class="section-header">
+                    <h2 class="section-title">Channel Guide</h2>
+                    <p class="section-description">Navigate our Discord server with ease! Here's a breakdown of our channels and their primary uses to help you find your way around.</p>
+                </div>
+
+                <div class="rules-controls"> <div class="search-box">
+                        <input type="text" id="channelSearch" class="search-input" placeholder="Search channels by keyword..." aria-label="Search channels">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" aria-label="Show all channels">All</button>
+                        <button class="filter-btn" data-filter="info" aria-label="Filter Information channels">Info</button>
+                        <button class="filter-btn" data-filter="text" aria-label="Filter Text channels">Text</button>
+                        <button class="filter-btn" data-filter="voice" aria-label="Filter Voice channels">Voice</button>
+                        <button class="filter-btn" data-filter="games" aria-label="Filter Game channels">Games</button>
+                        <button class="filter-btn" data-filter="staff" aria-label="Filter Staff channels">Staff</button>
+                    </div>
+                </div>
+
+                <div class="rules-grid" id="channelsGrid"> <h3 class="rule-category-title" data-category="info">Information & Announcements</h3>
+                    <div class="rule-card" data-tags="info announcements updates welcome important" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-bullhorn"></i></div>
+                            <h3 class="rule-title">#announcements</h3>
+                        </div>
+                        <p class="rule-description">Stay updated with important server news, event announcements, major changes, and official updates from the staff team. Only staff can post here.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Info</span>
+                            <span class="rule-tag">#Updates</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="info rules guidelines welcome" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-scroll"></i></div>
+                            <h3 class="rule-title">#rules</h3>
+                        </div>
+                        <p class="rule-description">Read our server's community guidelines and rules to ensure a positive and respectful environment for everyone. Required reading for all members.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Info</span>
+                            <span class="rule-tag">#Guidelines</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="info welcome new-members join" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-handshake"></i></div>
+                            <h3 class="rule-title">#welcome</h3>
+                        </div>
+                        <p class="rule-description">A warm greeting for new members joining our server! Find basic info and introduce yourself to the community here.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Info</span>
+                            <span class="rule-tag">#NewMembers</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="info roles self-assign" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-user-tag"></i></div>
+                            <h3 class="rule-title">#roles</h3>
+                        </div>
+                        <p class="rule-description">Assign yourself various roles to gain access to specific channels, express your interests, or show off your game preferences.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Info</span>
+                            <span class="rule-tag">#Roles</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="text">General & Community Text Channels</h3>
+                    <div class="rule-card" data-tags="text general chat community" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-comments"></i></div>
+                            <h3 class="rule-title">#general-chat</h3>
+                        </div>
+                        <p class="rule-description">The main hub for all casual conversations, discussions, and socializing. Feel free to chat about anything within server rules.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                            <span class="rule-tag">#Chat</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="text media memes screenshots art" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-image"></i></div>
+                            <h3 class="rule-title">#media-share</h3>
+                        </div>
+                        <p class="rule-description">Share your favorite memes, funny images, GIFs, screenshots, and other visual content here. Keep it appropriate!</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Media</span>
+                            <span class="rule-tag">#Memes</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="text off-topic casual hobbies" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-coffee"></i></div>
+                            <h3 class="rule-title">#off-topic</h3>
+                        </div>
+                        <p class="rule-description">A channel for discussions that don't fit into other categories. Talk about your day, hobbies, or anything else that comes to mind.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Off-Topic</span>
+                            <span class="rule-tag">#Casual</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="text commands bots support" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-robot"></i></div>
+                            <h3 class="rule-title">#bot-commands</h3>
+                        </div>
+                        <p class="rule-description">Use this channel to interact with our various server bots. Keep bot commands here to prevent spam in other channels.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Bots</span>
+                            <span class="rule-tag">#Commands</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="text feedback suggestions ideas support" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-lightbulb"></i></div>
+                            <h3 class="rule-title">#suggestions</h3>
+                        </div>
+                        <p class="rule-description">Have an idea to improve the server? Found a bug? Let us know your constructive feedback and suggestions here!</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Feedback</span>
+                            <span class="rule-tag">#Ideas</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="voice">Voice Channels</h3>
+                    <div class="rule-card" data-tags="voice general hangout talk" data-channel-type="voice">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-microphone"></i></div>
+                            <h3 class="rule-title">General Voice Chat</h3>
+                        </div>
+                        <p class="rule-description">Hop in here to chill, chat, and hang out with other members. Perfect for casual voice conversations.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Voice</span>
+                            <span class="rule-tag">#Hangout</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="voice gaming party LFG" data-channel-type="voice">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-gamepad"></i></div>
+                            <h3 class="rule-title">Gaming Voice Chat</h3>
+                        </div>
+                        <p class="rule-description">Dedicated voice channel for LFG (looking for group) and in-game communication. Coordinate with your teammates here.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Voice</span>
+                            <span class="rule-tag">#Gaming</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="voice afk idle private" data-channel-type="voice">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-headphones-alt"></i></div>
+                            <h3 class="rule-title">AFK Channel</h3>
+                        </div>
+                        <p class="rule-description">If you're inactive in other voice channels for too long, you'll be automatically moved here. Join back when you're ready!</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Voice</span>
+                            <span class="rule-tag">#AFK</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="games">Game-Specific Channels</h3>
+                    <div class="rule-card" data-tags="games volleyball legends strategies scrims" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-volleyball-ball"></i></div>
+                            <h3 class="rule-title">#vl-discussion</h3>
+                        </div>
+                        <p class="rule-description">Discuss strategies, tips, and everything related to Volleyball Legends. Share your best plays and ask for advice.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Games</span>
+                            <span class="rule-tag">#VL</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="games lfg scrims recruitment" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-user-friends"></i></div>
+                            <h3 class="rule-title">#lfg-scrims</h3>
+                        </div>
+                        <p class="rule-description">Looking for a team for scrims or just want to find players to queue with? Post your LFG requests here!</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Games</span>
+                            <span class="rule-tag">#LFG</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="staff">Staff & Moderation Channels</h3>
+                    <div class="rule-card" data-tags="staff moderation support help private" data-channel-type="text">
+                        <div class="rule-header">
+                            <div class="rule-number"><i class="fas fa-shield-alt"></i></div>
+                            <h3 class="rule-title">#mod-chat</h3>
+                        </div>
+                        <p class="rule-description">A private channel for staff members to discuss moderation, server issues, and planning. (Only visible to staff).</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Staff</span>
+                            <span class="rule-tag">#Private</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="quick-actions">
+        <button class="quick-action theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="quick-action scroll-top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script> </body>
+
+</html>
