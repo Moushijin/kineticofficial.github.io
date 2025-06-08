@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Modernized Dark & Light Theme Variables */
         :root {
-            /* Dark Theme Variables - Deep Blue & Black */
-            --primary-blue: #4F46E5; /* Original primary, but deeper */
-            --primary-dark-blue: #3730A3; /* Darker primary */
-            --accent-teal: #10B981; /* For subtle accents, success */
+            /* Dark Theme - Refined Deep Blue & Near Black */
+            --primary-blue: #5A8DED;
+            /* Slightly brighter, more vibrant blue */
+            --primary-dark-blue: #3A66B9;
+            /* Deeper, richer blue */
+            --accent-teal: #10B981;
             --danger-red: #EF4444;
             --warning-orange: #F59E0B;
             --info-blue: #3B82F6;
 
-            --bg-dark-0: #0D0F1C; /* Almost black, deep blue tint */
-            --bg-dark-1: #1A1C2E; /* Slightly lighter for cards/sections */
-            --bg-dark-2: #252840; /* Even lighter for secondary elements */
-            --bg-gradient-start: #0F1122;
-            --bg-gradient-end: #1A1E31;
+            --bg-dark-0: #0A0C16;
+            /* Very dark, subtle blue tint */
+            --bg-dark-1: #121526;
+            /* Main background for sections */
+            --bg-dark-2: #1D2138;
+            /* Card backgrounds, lighter elements */
+            --bg-dark-3: #282C4A;
+            /* Input fields, subtle highlights */
 
-            --text-light: #F8FAFC; /* Off-white */
-            --text-muted: #A1A7B3; /* Lighter grey for descriptions */
-            --text-accent: #7C839F; /* Subtler grey for placeholders, tags */
+            --text-light: #E0E7FF;
+            /* Soft white */
+            --text-muted: #A3B3CC;
+            /* Light grey-blue for descriptions */
+            --text-accent: #6C7A9D;
+            /* Subtler grey for placeholders, tags */
 
-            --border-color: rgba(255, 255, 255, 0.08); /* Subtle white border */
-            --border-hover: rgba(255, 255, 255, 0.15);
+            --border-color: rgba(255, 255, 255, 0.09);
+            /* Subtle white border */
+            --border-hover: rgba(255, 255, 255, 0.18);
 
-            --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.35);
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.25);
+            /* Softer, larger spread */
+            --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.45);
+            /* More pronounced */
 
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
             --radius-full: 9999px;
 
             /* Light Theme Variables */
@@ -43,6 +56,7 @@
             --light-bg-0: #F8FAFC;
             --light-bg-1: #EBF1F7;
             --light-bg-2: #D9E1E8;
+            --light-bg-3: #CBD4E0;
             --light-text-dark: #1E293B;
             --light-text-muted: #4B5563;
             --light-text-accent: #6B7280;
@@ -58,8 +72,7 @@
             --bg-dark-0: var(--light-bg-0);
             --bg-dark-1: var(--light-bg-1);
             --bg-dark-2: var(--light-bg-2);
-            --bg-gradient-start: var(--light-bg-0);
-            --bg-gradient-end: var(--light-bg-1);
+            --bg-dark-3: var(--light-bg-3);
             --text-light: var(--light-text-dark);
             --text-muted: var(--light-text-muted);
             --text-accent: var(--light-text-accent);
@@ -67,7 +80,7 @@
             --border-hover: var(--light-border-hover);
             --shadow-subtle: var(--light-shadow-subtle);
             --shadow-lg: var(--light-shadow-lg);
-            --warning-orange: #F59E0B; /* Keep consistent for highlighting */
+            --warning-orange: #F59E0B;
         }
 
         * {
@@ -77,17 +90,20 @@
         }
 
         html {
-            /* We'll manage smooth scrolling manually or via scroll-snap for sections */
-            /* scroll-behavior: smooth; */
+            scroll-behavior: smooth;
+            /* Enable smooth scrolling for anchor links */
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(145deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            background: var(--bg-dark-0);
+            /* Solid background for body */
             color: var(--text-light);
             line-height: 1.7;
             min-height: 100vh;
             transition: background-color 0.6s ease, color 0.6s ease;
+            overflow-x: hidden;
+            /* Prevent horizontal overflow from animations */
         }
 
         /* Utility Classes */
@@ -97,9 +113,54 @@
             padding: 0 1.5rem;
         }
 
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .hidden { display: none !important; }
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* --- Global Animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseBorder {
+            0% {
+                border-color: var(--border-color);
+            }
+
+            50% {
+                border-color: var(--primary-blue);
+            }
+
+            100% {
+                border-color: var(--border-color);
+            }
+        }
 
         /* --- Loading Screen --- */
         .loading-screen {
@@ -117,8 +178,8 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
-            gap: 1.5rem; /* Reduced gap for a tighter look */
-            padding: 1rem; /* Add some padding for smaller screens */
+            gap: 1.5rem;
+            padding: 1rem;
             text-align: center;
         }
 
@@ -130,71 +191,98 @@
 
         .loading-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Larger and more responsive */
+            font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 900;
             color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 0.15em; /* Increased letter spacing */
+            letter-spacing: 0.18em;
             line-height: 1.2;
-            margin-bottom: 2rem; /* Space before bars */
-            opacity: 0; /* Will animate in with JS */
-            transform: translateY(20px);
-            animation: fadeInTranslateY 0.8s ease forwards;
-            animation-delay: 0.2s;
-        }
-
-        @keyframes fadeInTranslateY {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation-delay: 0.3s;
+            text-shadow: var(--shadow-subtle);
         }
 
         .loading-bars-container {
             display: flex;
-            gap: 8px; /* Wider gap between bars */
-            height: 25px; /* Taller bars */
+            gap: 10px;
+            height: 30px;
             align-items: flex-end;
-            margin-bottom: 2rem; /* Space after bars */
+            margin-bottom: 2.5rem;
         }
 
         .loading-bar-segment {
-            width: 10px; /* Wider segments */
+            width: 12px;
             height: 5px;
             background: linear-gradient(to top, var(--primary-blue), var(--primary-dark-blue));
-            border-radius: 2px;
-            animation: simpleBarWave 1.2s ease-in-out infinite alternate;
+            border-radius: 3px;
+            animation: barWave 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite alternate;
             transition: background 0.3s ease;
+            box-shadow: 0 2px 8px rgba(var(--primary-blue), 0.3);
         }
 
-        .loading-bar-segment:nth-child(1) { animation-delay: 0s; }
-        .loading-bar-segment:nth-child(2) { animation-delay: 0.1s; }
-        .loading-bar-segment:nth-child(3) { animation-delay: 0.2s; }
-        .loading-bar-segment:nth-child(4) { animation-delay: 0.3s; }
-        .loading-bar-segment:nth-child(5) { animation-delay: 0.4s; }
-        .loading-bar-segment:nth-child(6) { animation-delay: 0.5s; }
-        .loading-bar-segment:nth-child(7) { animation-delay: 0.6s; }
+        .loading-bar-segment:nth-child(1) {
+            animation-delay: 0s;
+        }
 
-        @keyframes simpleBarWave {
-            0% { height: 5px; opacity: 0.6; }
-            50% { height: 25px; opacity: 1; } /* Max height for wave */
-            100% { height: 5px; opacity: 0.6; }
+        .loading-bar-segment:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .loading-bar-segment:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-bar-segment:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .loading-bar-segment:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .loading-bar-segment:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .loading-bar-segment:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes barWave {
+            0% {
+                height: 5px;
+                opacity: 0.6;
+            }
+
+            50% {
+                height: 30px;
+                opacity: 1;
+            }
+
+            100% {
+                height: 5px;
+                opacity: 0.6;
+            }
         }
 
         .loading-divider {
-            width: 150px; /* Length of the divider */
+            width: 180px;
             height: 2px;
             background-color: var(--text-muted);
-            margin: 2rem 0; /* Space above and below divider */
+            margin: 2rem 0;
             opacity: 0.7;
+            border-radius: 1px;
         }
 
         .loading-troubleshoot-messages {
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-top: 1rem;
-            max-width: 400px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-top: 1.5rem;
+            max-width: 450px;
         }
 
         .loading-troubleshoot-messages a {
@@ -215,18 +303,20 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(13, 15, 28, 0.8);
-            backdrop-filter: blur(25px);
+            background: rgba(10, 12, 22, 0.7);
+            /* Frosted glass effect */
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
-            padding: 0.9rem 0;
+            padding: 1rem 0;
             transform: translateY(-100%);
             transition: transform 0.4s ease-out, background 0.6s ease, border-color 0.6s ease;
             box-shadow: var(--shadow-subtle);
         }
 
         html[data-theme="light"] .navbar {
-            background: rgba(248, 250, 252, 0.8);
+            background: rgba(248, 250, 252, 0.7);
         }
 
         .navbar.visible {
@@ -242,29 +332,30 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.6rem;
+            gap: 0.85rem;
+            font-size: 1.7rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-logo img {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            border: 2px solid var(--primary-blue);
-            transition: transform 0.3s ease;
+            border: 3px solid var(--primary-blue);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 0 15px rgba(var(--primary-blue), 0.4);
         }
 
         .nav-logo:hover img {
-            transform: rotate(15deg);
+            transform: rotate(25deg) scale(1.05);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
@@ -272,15 +363,15 @@
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 1.05rem;
             transition: color 0.3s ease, transform 0.2s ease;
             position: relative;
-            padding-bottom: 0.2rem;
+            padding-bottom: 0.3rem;
         }
 
         .nav-link:hover {
             color: var(--primary-blue);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .nav-link::after {
@@ -290,9 +381,10 @@
             left: 50%;
             transform: translateX(-50%);
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--primary-blue);
-            transition: width 0.3s ease;
+            border-radius: 2px;
+            transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .nav-link:hover::after,
@@ -306,55 +398,62 @@
             background: none;
             border: none;
             color: var(--text-light);
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .mobile-toggle:hover {
             color: var(--primary-blue);
+            transform: scale(1.1);
         }
 
         /* --- Horizontal Slides Container --- */
         .horizontal-slides-wrapper {
             display: flex;
-            width: 100vw; /* Ensure it takes full viewport width */
-            overflow-x: auto; /* Enable horizontal scrolling */
-            overflow-y: hidden; /* Hide vertical scrollbar for the wrapper itself */
-            scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            height: 100vh; /* Take full viewport height */
-            /* Hide scrollbar for a cleaner look */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE and Edge */
+            width: 100vw;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            height: 100vh;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
         .horizontal-slides-wrapper::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
         }
 
-        /* Each section becomes a "slide" */
-        .horizontal-slides-wrapper > section {
-            flex: 0 0 100vw; /* Each section takes full viewport width */
-            scroll-snap-align: start; /* Snap to the start of each section */
-            height: 100%; /* Take full height of the wrapper */
-            overflow-y: auto; /* Allow vertical scrolling within each section if content overflows */
-            padding-top: 5rem; /* Add padding to account for fixed navbar, adjust as needed */
-            box-sizing: border-box; /* Include padding in the element's total width and height */
+        .horizontal-slides-wrapper>section {
+            flex: 0 0 100vw;
+            scroll-snap-align: start;
+            height: 100%;
+            overflow-y: auto;
+            padding-top: 6rem;
+            /* Adjusted for potentially larger navbar */
+            box-sizing: border-box;
+            background: var(--bg-dark-0);
+            /* Ensure sections have their own background */
+            transition: background-color 0.6s ease;
+        }
+
+        html[data-theme="light"] .horizontal-slides-wrapper>section {
+            background: var(--light-bg-0);
         }
 
         /* --- Hero Section (first slide) --- */
         .hero {
-            padding: 10rem 0 6rem; /* Adjust padding as needed, considering the new padding-top on the section itself */
+            padding: 10rem 0 6rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             display: flex;
-            flex-direction: column; /* Ensure content stacks vertically */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 5rem); /* Adjust based on navbar height */
-            background: linear-gradient(145deg, var(--bg-gradient-start), var(--bg-gradient-end)); /* Apply the body background here as well */
+            min-height: calc(100vh - 6rem);
+            /* Adjusted for navbar height */
         }
 
         .hero-bg-overlay {
@@ -363,69 +462,73 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(90, 141, 237, 0.1) 0%, transparent 65%),
+                url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 0V16M0 8H16" stroke="%232A3250" stroke-opacity="0.2"/%3E%3C/svg%3E');
+            /* Subtle grid pattern */
+            background-size: 100% 100%, 30px 30px;
+            /* Grid size */
             pointer-events: none;
             z-index: 0;
             transition: background 0.6s ease;
         }
 
         html[data-theme="light"] .hero-bg-overlay {
-            background: radial-gradient(circle at 50% 50%, rgba(90, 103, 216, 0.08) 0%, transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(90, 103, 216, 0.08) 0%, transparent 60%),
+                url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 0V16M0 8H16" stroke="%23B2C0D4" stroke-opacity="0.5"/%3E%3C/svg%3E');
         }
+
 
         .hero-content {
             position: relative;
             z-index: 1;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-            max-width: 800px;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            transform: translateY(40px);
+            animation: slideInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+            max-width: 900px;
         }
 
         .hero-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            font-size: clamp(3rem, 6vw, 5.5rem);
             font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-light) 0%, var(--primary-blue) 100%);
+            line-height: 1.1;
+            margin-bottom: 1.8rem;
+            background: linear-gradient(135deg, var(--text-light) 30%, var(--primary-blue) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Subtle text shadow */
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-muted);
-            margin-bottom: 3.5rem;
-            max-width: 650px;
+            margin-bottom: 4rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         /* --- Buttons --- */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2.2rem;
+            gap: 0.9rem;
+            padding: 1.1rem 2.5rem;
             border-radius: var(--radius-md);
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.05rem;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            /* Added text shadow */
         }
 
         .btn-primary {
@@ -435,24 +538,27 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
             background: linear-gradient(45deg, var(--primary-dark-blue) 0%, var(--primary-blue) 100%);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.08);
+            /* More pronounced frosted effect */
             color: var(--text-light);
             border: 1px solid var(--border-color);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             box-shadow: var(--shadow-subtle);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            color: var(--primary-blue);
         }
 
         html[data-theme="light"] .btn-secondary {
@@ -463,14 +569,15 @@
 
         html[data-theme="light"] .btn-secondary:hover {
             background: rgba(0, 0, 0, 0.1);
-            border-color: var(--light-border-hover);
+            border-color: var(--light-primary);
+            color: var(--light-primary);
         }
 
         /* --- Rules Section (second slide) --- */
         .rules-section {
             padding: 5rem 0 6rem;
-            background: var(--bg-dark-1); /* Use bg-dark-1 for rules section */
-            border-top: 1px solid var(--border-color); /* Kept for consistent style, though border might not be visible with slides */
+            background: var(--bg-dark-1);
+            border-top: 1px solid var(--border-color);
             transition: background 0.6s ease, border-color 0.6s ease;
         }
 
@@ -480,55 +587,58 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 4.5rem;
         }
 
         .section-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .section-description {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
         /* --- Search and Filter --- */
         .rules-controls {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-bottom: 3.5rem;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
             justify-content: center;
             align-items: center;
         }
 
         .search-box {
             flex: 1;
-            min-width: 280px;
+            min-width: 300px;
             position: relative;
-            max-width: 450px;
+            max-width: 500px;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 1.2rem 1rem 3.5rem;
-            background: var(--bg-dark-2);
+            padding: 1.1rem 1.2rem 1.1rem 3.8rem;
+            background: var(--bg-dark-3);
+            /* Slightly lighter background for input */
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             color: var(--text-light);
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
         }
 
         html[data-theme="light"] .search-input {
-            background: var(--light-bg-2);
+            background: var(--light-bg-3);
             color: var(--light-text-dark);
         }
 
@@ -539,34 +649,35 @@
         .search-input:focus {
             outline: none;
             border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25), inset 0 1px 3px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 0 4px rgba(90, 141, 237, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .search-icon {
             position: absolute;
-            left: 1.2rem;
+            left: 1.4rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-accent);
             pointer-events: none;
+            font-size: 1.2rem;
         }
 
         .filter-buttons {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.9rem;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .filter-btn {
-            padding: 0.8rem 1.8rem;
+            padding: 0.9rem 2rem;
             background: var(--bg-dark-2);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             color: var(--text-muted);
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: var(--shadow-subtle);
         }
 
@@ -578,7 +689,7 @@
         .filter-btn:hover {
             border-color: var(--primary-blue);
             color: var(--primary-blue);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -587,28 +698,34 @@
             color: white;
             border-color: var(--primary-blue);
             box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         /* --- Rules Grid --- */
         .rules-grid {
             display: grid;
-            gap: 2.5rem;
+            gap: 2.8rem;
             margin-bottom: 4rem;
         }
 
         .rule-category-title {
             grid-column: 1 / -1;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary-blue);
-            margin-top: 3.5rem;
-            margin-bottom: 1.8rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
             text-align: left;
             position: relative;
-            padding-left: 1.8rem;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation-delay: 0.2s;
+            /* Added delay for categories */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .rule-category-title::before {
@@ -617,17 +734,17 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 10px;
-            height: 80%;
-            background: var(--primary-blue);
-            border-radius: 2px;
+            width: 12px;
+            height: 90%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-dark-blue));
+            border-radius: 3px;
         }
 
         .rule-card {
             background: var(--bg-dark-2);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
+            padding: 2.8rem;
             position: relative;
             transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0;
@@ -635,11 +752,31 @@
             display: flex;
             flex-direction: column;
             box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            /* For the subtle background pattern */
         }
 
         html[data-theme="light"] .rule-card {
             background: var(--light-bg-2);
         }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 90%, rgba(90, 141, 237, 0.03) 0%, transparent 40%);
+            /* Subtle radial gradient */
+            z-index: 0;
+            transition: background 0.6s ease;
+        }
+
+        html[data-theme="light"] .rule-card::before {
+            background: radial-gradient(circle at 10% 90%, rgba(90, 103, 216, 0.03) 0%, transparent 40%);
+        }
+
 
         .rule-card.visible {
             opacity: 1;
@@ -647,21 +784,31 @@
         }
 
         .rule-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: var(--primary-blue);
             box-shadow: var(--shadow-lg);
+            background: var(--bg-dark-1);
+            /* Slightly darker on hover */
+            z-index: 2;
+            /* Bring hovered card slightly to front */
+        }
+
+        html[data-theme="light"] .rule-card:hover {
+            background: var(--light-bg-1);
         }
 
         .rule-header {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 1.8rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .rule-number {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark-blue) 100%);
             color: white;
             border-radius: var(--radius-md);
@@ -669,118 +816,143 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             flex-shrink: 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 15px rgba(var(--primary-blue), 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            /* Subtle white border */
         }
 
         .rule-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
             margin: 0;
+            line-height: 1.3;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
         }
 
         .rule-description {
             color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            margin-bottom: 1.8rem;
             flex-grow: 1;
-            font-size: 0.98rem;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .rule-tags {
             display: flex;
-            gap: 0.6rem;
+            gap: 0.7rem;
             flex-wrap: wrap;
             margin-top: auto;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            position: relative;
+            z-index: 1;
         }
 
         html[data-theme="light"] .rule-tags {
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
         }
 
         .rule-tag {
-            padding: 0.3rem 0.9rem;
-            background: rgba(79, 70, 229, 0.15);
+            padding: 0.4rem 1.1rem;
+            background: rgba(90, 141, 237, 0.18);
+            /* Use primary blue with transparency */
             color: var(--primary-blue);
             border-radius: var(--radius-full);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: background 0.3s ease, color 0.3s ease;
+            border: 1px solid rgba(90, 141, 237, 0.25);
+            /* Added subtle border */
         }
 
         html[data-theme="light"] .rule-tag {
             background: rgba(90, 103, 216, 0.15);
             color: var(--light-primary-dark);
+            border: 1px solid rgba(90, 103, 216, 0.25);
         }
 
         .rule-severity {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 14px;
-            height: 14px;
+            top: 1.8rem;
+            right: 1.8rem;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            /* Added border for pop */
         }
 
-        .severity-low { background: var(--accent-teal); }
-        .severity-medium { background: var(--warning-orange); }
-        .severity-high { background: var(--danger-red); }
+        .severity-low {
+            background: var(--accent-teal);
+        }
+
+        .severity-medium {
+            background: var(--warning-orange);
+        }
+
+        .severity-high {
+            background: var(--danger-red);
+        }
 
         /* Highlight Style */
         .highlight {
             background-color: var(--warning-orange);
             color: var(--bg-dark-0);
-            padding: 1px 3px;
-            border-radius: 4px;
+            padding: 2px 5px;
+            border-radius: 6px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            font-weight: 600;
+            font-weight: 700;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
         html[data-theme="light"] .highlight {
             color: var(--light-text-dark);
-            background-color: var(--warning-orange);
         }
 
         /* --- Quick Actions --- */
         .quick-actions {
             position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
+            bottom: 2.8rem;
+            right: 2.8rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
             z-index: 1000;
         }
 
         .quick-action {
-            width: 65px;
-            height: 65px;
-            background: var(--primary-blue);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-dark-blue));
             color: white;
             border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: all 0.3s ease-out;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            /* Added border for pop */
         }
 
         .quick-action:hover {
-            transform: scale(1.1);
-            background: var(--primary-dark-blue);
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+            transform: scale(1.15) rotate(10deg);
+            /* More dynamic hover */
+            background: linear-gradient(45deg, var(--primary-dark-blue), var(--primary-blue));
+            box-shadow: 0 0 20px rgba(90, 141, 237, 0.5);
         }
 
-        /* Theme Toggle */
+        /* Theme Toggle (specific styling for its background) */
         .theme-toggle {
             background: var(--bg-dark-2);
             color: var(--text-light);
@@ -795,46 +967,78 @@
         }
 
         .theme-toggle:hover {
-            background: var(--bg-dark-1);
+            background: var(--primary-blue);
+            color: white;
             border-color: var(--primary-blue);
         }
 
         html[data-theme="light"] .theme-toggle:hover {
-            background: var(--light-bg-1);
-            border-color: var(--light-primary);
+            background: var(--light-primary);
         }
 
-        /* Scroll to Top (now scroll to start of current horizontal slide) */
+
+        /* Scroll to Top */
         .scroll-top {
             opacity: 0;
             visibility: hidden;
+            transform: translateY(20px);
             transition: all 0.3s ease;
         }
 
         .scroll-top.visible {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
         /* --- Responsive Design --- */
         @media (min-width: 768px) {
             .rules-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
 
         @media (max-width: 992px) {
             .nav-links {
-                gap: 1.5rem;
+                gap: 2rem;
             }
+
             .hero-title {
-                font-size: clamp(2.5rem, 6vw, 4rem);
+                font-size: clamp(2.8rem, 6.5vw, 4.5rem);
             }
+
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
             }
+
             .loading-text {
-                font-size: clamp(2rem, 7vw, 3.5rem);
+                font-size: clamp(2.2rem, 7vw, 4rem);
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 4.8vw, 3rem);
+            }
+
+            .rule-category-title {
+                font-size: 2.2rem;
+            }
+
+            .rule-card {
+                padding: 2.2rem;
+            }
+
+            .rule-title {
+                font-size: 1.5rem;
+            }
+
+            .rule-number {
+                width: 55px;
+                height: 55px;
+                font-size: 1.2rem;
+            }
+
+            .rule-description {
+                font-size: 0.95rem;
             }
         }
 
@@ -842,90 +1046,147 @@
             .nav-links {
                 display: none;
             }
+
             .mobile-toggle {
                 display: block;
             }
-            /* Adjust padding and height for smaller screens, especially when content overflows */
-            .horizontal-slides-wrapper > section {
-                padding-top: 4.5rem; /* Slightly less padding for smaller screens if navbar is smaller */
-                min-height: 100vh; /* Ensure full viewport height on mobile too */
+
+            .horizontal-slides-wrapper>section {
+                padding-top: 5rem;
+                min-height: 100vh;
             }
+
             .hero {
-                padding-top: 8rem; /* Keep existing hero padding but adjust for new top padding */
-                padding-bottom: 4rem;
-                min-height: calc(100vh - 4.5rem);
+                padding-top: 9rem;
+                padding-bottom: 5rem;
+                min-height: calc(100vh - 5rem);
             }
+
             .hero-actions {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
             }
+
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
+                padding: 1rem 2rem;
             }
+
             .rules-controls {
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .filter-buttons {
                 justify-content: flex-start;
+                /* Align to left on small screens */
             }
+
             .search-box {
                 min-width: unset;
                 max-width: unset;
             }
+
             .quick-actions {
-                bottom: 1.5rem;
-                right: 1.5rem;
+                bottom: 1.8rem;
+                right: 1.8rem;
+                gap: 0.9rem;
             }
+
             .quick-action {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
             }
+
             .rule-category-title {
                 text-align: center;
                 padding-left: 0;
+                font-size: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 1.5rem;
             }
+
             .rule-category-title::before {
                 display: none;
+            }
+
+            .rule-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .rule-number {
+                margin-bottom: 0.5rem;
+            }
+
+            .rule-title {
+                font-size: 1.4rem;
+            }
+
+            .rule-severity {
+                top: 1rem;
+                right: 1rem;
+                width: 12px;
+                height: 12px;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             .rules-section {
-                padding: 4rem 0;
+                padding: 3.5rem 0;
             }
+
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
+
             .section-description {
                 font-size: 1rem;
             }
+
             .rule-card {
-                padding: 2rem;
+                padding: 1.8rem;
             }
+
             .rule-title {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
+
             .rule-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
             }
+
             .rule-description {
-                font-size: 0.95rem;
-            }
-            .filter-btn {
-                padding: 0.7rem 1.4rem;
                 font-size: 0.9rem;
             }
+
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
             .search-input {
                 font-size: 0.9rem;
+                padding: 1rem 1rem 1rem 3.2rem;
+            }
+
+            .search-icon {
+                left: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="loading-screen" id="loading-screen">
@@ -1250,7 +1511,6 @@
             const loadingScreen = document.getElementById('loading-screen');
             const loadingText = document.querySelector('.loading-text');
             const navbar = document.getElementById('navbar');
-            const heroContent = document.querySelector('.hero-content'); // Keep reference
             const rulesGrid = document.getElementById('rulesGrid');
             const ruleCards = rulesGrid.querySelectorAll('.rule-card');
             const ruleCategoryTitles = rulesGrid.querySelectorAll('.rule-category-title');
@@ -1274,12 +1534,11 @@
                 }
             };
 
-            // Initialize theme on page load
             const currentTheme = localStorage.getItem('theme');
             if (currentTheme) {
                 setTheme(currentTheme);
             } else {
-                setTheme('dark'); // Default to dark if no theme is set
+                setTheme('dark');
             }
 
             themeToggleBtn.addEventListener('click', () => {
@@ -1292,52 +1551,29 @@
             });
 
             // --- Loading Screen Logic ---
-            // Simulate loading time and trigger the end of loading
             setTimeout(() => {
-                loadingText.style.opacity = '1'; // Make loading text visible
-                loadingText.style.transform = 'translateY(0)'; // Animate loading text
-
-                // After initial loading text animation, dismiss loading screen
-                // and initialize main content
+                loadingScreen.classList.add('loaded'); // Hides loading screen
                 setTimeout(() => {
-                    loadingScreen.classList.add('loaded'); // Hides loading screen
+                    navbar.classList.add('visible');
+                    filterRules(); // Initial display of rules
+                    const heroLink = document.querySelector('a[href="#hero"]');
+                    if (heroLink) heroLink.classList.add('active');
+                }, 700); // This delay accounts for the loading-screen fade-out transition duration
+            }, 1800); // Increased delay for initial text animation and bars
 
-                    // Reveal navbar and content after loading screen fade
-                    setTimeout(() => {
-                        navbar.classList.add('visible');
-                        // Hero content reveal is handled by its CSS animation "fadeInUp"
-                        // No need to manually set opacity/transform here, just ensure it's part of the DOM flow.
-
-                        // Initial setup for rules cards visibility
-                        filterRules();
-
-                        // Manually set 'hero' as active initially since horizontal wrapper starts there
-                        const heroLink = document.querySelector('a[href="#hero"]');
-                        if (heroLink) heroLink.classList.add('active');
-
-                        // Add 'active' class to the initially visible section (hero) for scroll-top btn logic
-                        const heroSection = document.getElementById('hero');
-                        if (heroSection) heroSection.classList.add('active');
-
-                    }, 700); // This delay accounts for the loading-screen fade-out transition duration
-                }, 1500); // This is the total duration the loading screen *stays* on screen before fading
-            }, 200); // Small initial delay to ensure DOM is fully ready and CSS applied, though DOMContentLoaded handles most of this.
-
-
-            // --- Navbar visibility on scroll (now primarily for vertical scroll *within* sections) ---
+            // --- Navbar visibility on scroll and active link highlighting ---
             let lastScrollTopVertical = 0;
-            let lastScrollLeftHorizontal = 0;
 
             horizontalSlidesWrapper.addEventListener('scroll', () => {
                 let currentScrollLeft = horizontalSlidesWrapper.scrollLeft;
-
                 let currentSectionId = '';
+
                 sections.forEach(section => {
                     const sectionLeft = section.offsetLeft;
                     const sectionWidth = section.offsetWidth;
-                    // Check if the middle of the current view is within this section
-                    if (currentScrollLeft + (window.innerWidth / 2) >= sectionLeft &&
-                        currentScrollLeft + (window.innerWidth / 2) < sectionLeft + sectionWidth) {
+                    // More precise active section detection
+                    if (currentScrollLeft >= sectionLeft - sectionWidth * 0.1 &&
+                        currentScrollLeft < sectionLeft + sectionWidth - sectionWidth * 0.1) {
                         currentSectionId = section.getAttribute('id');
                     }
                 });
@@ -1348,16 +1584,13 @@
                         link.classList.add('active');
                     }
                 });
-
-                lastScrollLeftHorizontal = currentScrollLeft;
             });
 
-            // Monitor vertical scroll within the currently visible section
+
             sections.forEach(section => {
                 section.addEventListener('scroll', () => {
                     let currentScrollVertical = section.scrollTop;
 
-                    // Navbar visibility based on vertical scroll within the current slide
                     if (currentScrollVertical > lastScrollTopVertical && currentScrollVertical > navbar.offsetHeight) {
                         navbar.classList.remove('visible');
                     } else {
@@ -1365,7 +1598,6 @@
                     }
                     lastScrollTopVertical = currentScrollVertical <= 0 ? 0 : currentScrollVertical;
 
-                    // Show/hide scroll to top button based on vertical scroll within current slide
                     if (currentScrollVertical > 400) {
                         scrollTopBtn.classList.add('visible');
                     } else {
@@ -1374,8 +1606,6 @@
                 });
             });
 
-
-            // Set initial navbar visibility
             navbar.classList.add('visible'); // Always visible initially
 
             // --- Smooth scrolling for nav links (now handles horizontal scroll) ---
@@ -1392,7 +1622,6 @@
                                 left: targetSection.offsetLeft,
                                 behavior: 'smooth'
                             });
-                            // After horizontal scroll, ensure vertical scroll is at top of the section
                             targetSection.scrollTo({
                                 top: 0,
                                 behavior: 'smooth'
@@ -1411,14 +1640,12 @@
                         behavior: 'smooth'
                     });
                 } else {
-                    // Fallback to scrolling the first section if no active section found
                     sections[0].scrollTo({
                         top: 0,
                         behavior: 'smooth'
                     });
                 }
             });
-
 
             // Store original content of rule cards to reset during search
             const originalRuleContent = {};
@@ -1438,10 +1665,8 @@
                 if (!searchTerm) return text;
                 const terms = searchTerm.split(/\s+/).filter(word => word.length > 0);
                 if (terms.length === 0) return text;
-
                 const escapedTerms = terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
                 const regex = new RegExp(`(${escapedTerms.join('|')})`, 'gi');
-
                 return text.replace(regex, '<span class="highlight">$&</span>');
             };
 
@@ -1449,27 +1674,38 @@
                 const searchTerm = ruleSearchInput.value.toLowerCase().trim();
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
                 const isSearching = searchTerm !== '';
-
                 const categoriesPresent = new Set();
-
                 let animationDelay = 0;
+
+                // Hide all rule cards and categories first to reset animation
+                ruleCards.forEach(card => {
+                    card.style.display = 'none';
+                    card.classList.remove('visible');
+                    card.style.animationDelay = '0ms';
+                });
+                ruleCategoryTitles.forEach(title => {
+                    title.style.display = 'none';
+                    title.classList.remove('visible'); // If you add animation for titles
+                    title.style.animationDelay = '0ms';
+                });
+
+
                 ruleCards.forEach(card => {
                     const ruleNumberElement = card.querySelector('.rule-number');
                     const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent.trim() : card.dataset.ruleId;
-
                     const originalTitle = originalRuleContent[ruleNumber].title;
                     const originalDescription = originalRuleContent[ruleNumber].description;
-
                     const titleText = originalTitle.toLowerCase();
                     const descriptionText = originalDescription.toLowerCase();
 
                     const matchesSearch = !isSearching ||
-                                          titleText.includes(searchTerm) ||
-                                          descriptionText.includes(searchTerm);
+                        titleText.includes(searchTerm) ||
+                        descriptionText.includes(searchTerm);
 
                     const tags = card.dataset.tags.toLowerCase();
                     const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
 
+                    // Reset content before applying highlights
                     card.querySelector('.rule-title').innerHTML = originalTitle;
                     card.querySelector('.rule-description').innerHTML = originalDescription;
 
@@ -1480,9 +1716,8 @@
                             card.querySelector('.rule-description').innerHTML = highlightText(originalDescription, searchTerm);
                         }
                         card.style.animationDelay = `${animationDelay}ms`;
-                        card.classList.add('visible');
-                        animationDelay += 70;
-
+                        card.classList.add('visible'); // Trigger slideInUp animation
+                        animationDelay += 70; // Staggered animation
                         const primaryTag = tags.split(' ')[0];
                         if (primaryTag) {
                             categoriesPresent.add(primaryTag);
@@ -1490,26 +1725,29 @@
                     } else {
                         card.style.display = 'none';
                         card.classList.remove('visible');
-                        card.style.animationDelay = '0ms';
                     }
                 });
 
                 ruleCategoryTitles.forEach(title => {
                     const category = title.dataset.category;
+                    // Only show category if there are visible rules under it OR if 'all' filter and no search
                     if (activeFilter === 'all' && !isSearching) {
                         title.style.display = 'block';
+                        title.classList.add('visible');
                     } else if (activeFilter !== 'all' && category === activeFilter) {
                         title.style.display = 'block';
+                        title.classList.add('visible');
                     } else if (isSearching && categoriesPresent.has(category)) {
                         title.style.display = 'block';
+                        title.classList.add('visible');
                     } else {
                         title.style.display = 'none';
+                        title.classList.remove('visible');
                     }
                 });
             };
 
             ruleSearchInput.addEventListener('input', filterRules);
-
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -1518,7 +1756,7 @@
                 });
             });
 
-            // Observer to manage 'active' class on horizontal sections
+            // Intersection Observer to manage 'active' class on horizontal sections
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1536,5 +1774,7 @@
             });
         });
     </script>
+
 </body>
+
 </html>
