@@ -4,70 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinetic Official - Discord Server Rules</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Dark Theme Defaults */
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #f59e0b;
-            --accent: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --success: #10b981;
-            --info: #3b82f6;
+            /* Dark Theme Variables - Deep Blue & Black */
+            --primary-blue: #4F46E5; /* Original primary, but deeper */
+            --primary-dark-blue: #3730A3; /* Darker primary */
+            --accent-teal: #10B981; /* For subtle accents, success */
+            --danger-red: #EF4444;
+            --warning-orange: #F59E0B;
+            --info-blue: #3B82F6;
 
-            --bg-primary: #0f0f23;
-            --bg-secondary: #1a1a2e;
-            --bg-tertiary: #16213e;
-            --bg-card: rgba(26, 26, 46, 0.8);
-            --bg-glass: rgba(255, 255, 255, 0.05);
+            --bg-dark-0: #0D0F1C; /* Almost black, deep blue tint */
+            --bg-dark-1: #1A1C2E; /* Slightly lighter for cards/sections */
+            --bg-dark-2: #252840; /* Even lighter for secondary elements */
+            --bg-gradient-start: #0F1122;
+            --bg-gradient-end: #1A1E31;
 
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-light: #F8FAFC; /* Off-white */
+            --text-muted: #A1A7B3; /* Lighter grey for descriptions */
+            --text-accent: #7C839F; /* Subtler grey for placeholders, tags */
 
-            --border: rgba(255, 255, 255, 0.1);
-            --border-hover: rgba(255, 255, 255, 0.2);
+            --border-color: rgba(255, 255, 255, 0.08); /* Subtle white border */
+            --border-hover: rgba(255, 255, 255, 0.15);
 
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.35);
 
-            --radius-sm: 6px;
-            --radius: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
-            --radius-2xl: 24px;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
             --radius-full: 9999px;
+
+            /* Light Theme Variables (Optional, but good to have) */
+            --light-primary: #5A67D8;
+            --light-primary-dark: #434CB5;
+
+            --light-bg-0: #F8FAFC;
+            --light-bg-1: #EBF1F7;
+            --light-bg-2: #D9E1E8;
+
+            --light-text-dark: #1E293B;
+            --light-text-muted: #4B5563;
+            --light-text-accent: #6B7280;
+
+            --light-border-color: rgba(0, 0, 0, 0.08);
+            --light-border-hover: rgba(0, 0, 0, 0.15);
+
+            --light-shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.08);
+            --light-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* Light Theme Variables */
         html[data-theme="light"] {
-            --primary: #4f46e5;
-            --primary-dark: #3730a3;
-            --primary-light: #6366f1;
-
-            --bg-primary: #f8fafc; /* Light off-white */
-            --bg-secondary: #e2e8f0; /* Slightly darker light grey */
-            --bg-tertiary: #cbd5e1; /* Even darker light grey */
-            --bg-card: rgba(255, 255, 255, 0.9); /* More opaque for light mode */
-            --bg-glass: rgba(255, 255, 255, 0.6);
-
-            --text-primary: #1e293b; /* Dark text */
-            --text-secondary: #475569; /* Slightly lighter dark text */
-            --text-muted: #64748b; /* Muted dark text */
-
-            --border: rgba(0, 0, 0, 0.1);
-            --border-hover: rgba(0, 0, 0, 0.2);
-
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --primary-blue: var(--light-primary);
+            --primary-dark-blue: var(--light-primary-dark);
+            --bg-dark-0: var(--light-bg-0);
+            --bg-dark-1: var(--light-bg-1);
+            --bg-dark-2: var(--light-bg-2);
+            --bg-gradient-start: var(--light-bg-0);
+            --bg-gradient-end: var(--light-bg-1);
+            --text-light: var(--light-text-dark);
+            --text-muted: var(--light-text-muted);
+            --text-accent: var(--light-text-accent);
+            --border-color: var(--light-border-color);
+            --border-hover: var(--light-border-hover);
+            --shadow-subtle: var(--light-shadow-subtle);
+            --shadow-lg: var(--light-shadow-lg);
         }
 
         * {
@@ -78,34 +81,46 @@
 
         html {
             scroll-behavior: smooth;
-            /* Ensure smooth transition for background and text colors */
-            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            color: var(--text-light);
+            line-height: 1.7;
             overflow-x: hidden;
             min-height: 100vh;
-            transition: background 0.5s ease, color 0.5s ease; /* Smooth transition for body background */
+            transition: background-color 0.6s ease, color 0.6s ease;
         }
 
-        /* Enhanced Loading Screen */
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .hidden { display: none !important; }
+
+        /* --- Loading Screen --- */
         .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-primary); /* Use theme variable */
+            background: var(--bg-dark-0);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 10000;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+            gap: 2.5rem;
         }
 
         .loading-screen.loaded {
@@ -114,137 +129,165 @@
             pointer-events: none;
         }
 
-        .loading-logo {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            animation: logoFloat 3s ease-in-out infinite;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(99, 102, 241, 0.1); /* Use rgba for primary for semi-transparency */
-            border-top: 3px solid var(--primary);
+        .loading-logo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            animation: pulseFade 2s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .loading-text {
-            color: var(--text-secondary);
+        .loading-logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: spinFast 1.5s linear infinite;
+        }
+
+        @keyframes spinFast {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseFade {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .loading-messages {
+            color: var(--text-muted);
             font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+            min-height: 1.5em; /* To prevent layout shift */
+            text-align: center;
         }
 
-        .loading-progress {
-            width: 300px;
-            height: 4px;
-            background: rgba(99, 102, 241, 0.1); /* Use rgba for primary for semi-transparency */
-            border-radius: var(--radius-full);
-            overflow: hidden;
+        .loading-bars-container {
+            display: flex;
+            gap: 5px;
+            height: 20px;
+            align-items: flex-end;
+            margin-top: 1rem;
         }
 
-        .loading-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: var(--radius-full);
-            width: 0%;
-            animation: loadProgress 2.5s ease-out;
+        .loading-bar-segment {
+            width: 8px;
+            height: 5px;
+            background: linear-gradient(to top, var(--primary-blue), var(--primary-dark-blue));
+            border-radius: 2px;
+            animation: barWave 1.2s ease-in-out infinite alternate;
+            transition: background 0.3s ease;
         }
 
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .loading-bar-segment:nth-child(1) { animation-delay: 0s; }
+        .loading-bar-segment:nth-child(2) { animation-delay: 0.1s; }
+        .loading-bar-segment:nth-child(3) { animation-delay: 0.2s; }
+        .loading-bar-segment:nth-child(4) { animation-delay: 0.3s; }
+        .loading-bar-segment:nth-child(5) { animation-delay: 0.4s; }
+        .loading-bar-segment:nth-child(6) { animation-delay: 0.5s; }
+        .loading-bar-segment:nth-child(7) { animation-delay: 0.6s; }
+
+        @keyframes barWave {
+            0% { height: 5px; opacity: 0.6; }
+            50% { height: 20px; opacity: 1; }
+            100% { height: 5px; opacity: 0.6; }
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes loadProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        /* Navigation */
+        /* --- Navbar --- */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: var(--bg-primary); /* Use theme variable */
-            background: rgba(15, 15, 35, 0.9); /* Fallback for older browsers, then blur */
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(13, 15, 28, 0.8);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-color);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.9rem 0;
             transform: translateY(-100%);
-            transition: transform 0.3s ease, background 0.5s ease, border-color 0.5s ease;
+            transition: transform 0.4s ease-out, background 0.6s ease, border-color 0.6s ease;
+            box-shadow: var(--shadow-subtle);
         }
 
         html[data-theme="light"] .navbar {
-            background: rgba(248, 250, 252, 0.9);
+            background: rgba(248, 250, 252, 0.8);
         }
 
         .navbar.visible {
             transform: translateY(0);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-logo {
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-light); /* Changed to solid color, can be gradient */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: rotate(15deg);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-link {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.2s ease;
             position: relative;
+            padding-bottom: 0.2rem;
         }
 
         .nav-link:hover {
-            color: var(--primary-light);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--primary-blue);
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
@@ -253,39 +296,43 @@
             display: none;
             background: none;
             border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.8rem;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .mobile-toggle:hover {
+            color: var(--primary-blue);
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
-            padding: 8rem 0 4rem;
+            padding: 10rem 0 6rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
         }
 
-        .hero-bg {
+        .hero-bg-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
             pointer-events: none;
-            transition: background 0.5s ease;
+            z-index: 0;
+            transition: background 0.6s ease;
         }
-        html[data-theme="light"] .hero-bg {
-            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+        html[data-theme="light"] .hero-bg-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(90, 103, 216, 0.08) 0%, transparent 60%);
         }
+
 
         .hero-content {
             position: relative;
@@ -293,91 +340,100 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease 0.5s forwards;
+            max-width: 800px;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--primary-blue) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Buttons */
+        /* --- Buttons --- */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: var(--radius-lg);
+            gap: 0.75rem;
+            padding: 1rem 2.2rem;
+            border-radius: var(--radius-md);
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: none;
             cursor: pointer;
             font-size: 1rem;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(45deg, var(--primary-blue) 0%, var(--primary-dark-blue) 100%);
             color: white;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-subtle);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(45deg, var(--primary-dark-blue) 0%, var(--primary-blue) 100%);
         }
 
         .btn-secondary {
-            background: var(--bg-glass);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-subtle);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             border-color: var(--border-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
         html[data-theme="light"] .btn-secondary {
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--light-text-dark);
+            border: 1px solid var(--light-border-color);
         }
         html[data-theme="light"] .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: var(--border-hover);
+            background: rgba(0, 0, 0, 0.1);
+            border-color: var(--light-border-hover);
         }
 
-
-        /* Rules Section */
+        /* --- Rules Section --- */
         .rules-section {
-            padding: 6rem 0;
-            margin-top: 4rem;
+            padding: 5rem 0 6rem;
+            background: var(--bg-dark-1);
+            border-top: 1px solid var(--border-color);
+            transition: background 0.6s ease, border-color 0.6s ease;
+        }
+        html[data-theme="light"] .rules-section {
+            background: var(--light-bg-1);
         }
 
         .section-header {
@@ -386,107 +442,129 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            color: var(--text-primary);
+            color: var(--text-light);
         }
 
         .section-description {
             font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+            color: var(--text-muted);
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        /* Search and Filter */
+        /* --- Search and Filter --- */
         .rules-controls {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
             flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 3.5rem;
+            justify-content: center;
+            align-items: center;
         }
 
         .search-box {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             position: relative;
+            max-width: 450px;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 3rem 1rem 1rem;
-            background: var(--bg-glass);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            color: var(--text-primary);
+            padding: 1rem 1.2rem 1rem 3.5rem;
+            background: var(--bg-dark-2);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-light);
             font-size: 1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         html[data-theme="light"] .search-input {
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--light-bg-2);
+            color: var(--light-text-dark);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-accent);
         }
 
         .search-input:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25), inset 0 1px 3px rgba(0, 0, 0, 0.15);
         }
 
         .search-icon {
             position: absolute;
-            right: 1rem;
+            left: 1.2rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-muted);
+            color: var(--text-accent);
+            pointer-events: none;
         }
 
         .filter-buttons {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-glass);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            color: var(--text-secondary);
+            padding: 0.8rem 1.8rem;
+            background: var(--bg-dark-2);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease, background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
-            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-subtle);
         }
         html[data-theme="light"] .filter-btn {
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--light-bg-2);
+            color: var(--light-text-muted);
         }
 
-
-        .filter-btn.active,
         .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* Rules Grid */
+        .filter-btn.active {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-dark-blue));
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        /* --- Rules Grid --- */
         .rules-grid {
             display: grid;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 4rem;
         }
 
         .rule-category-title {
-            grid-column: 1 / -1; /* Span across all columns */
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
+            grid-column: 1 / -1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: 3.5rem;
+            margin-bottom: 1.8rem;
             text-align: left;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.8rem;
+            transition: opacity 0.3s ease, transform 0.3s ease; /* For hiding/showing */
         }
 
         .rule-category-title::before {
@@ -495,29 +573,27 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 8px;
-            height: 100%;
-            background: var(--primary);
-            border-radius: var(--radius-sm);
+            width: 10px;
+            height: 80%;
+            background: var(--primary-blue);
+            border-radius: 2px; /* Smoother radius */
         }
-
 
         .rule-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
+            background: var(--bg-dark-2);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, border-color 0.5s ease;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0;
             transform: translateY(20px);
-            /* Add some responsive grid for cards */
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow-subtle);
         }
         html[data-theme="light"] .rule-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--light-bg-2);
         }
 
         .rule-card.visible {
@@ -526,107 +602,108 @@
         }
 
         .rule-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px);
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-lg);
         }
 
         .rule-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
         }
 
         .rule-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark-blue) 100%);
             color: white;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .rule-title {
-            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--text-light);
             margin: 0;
         }
 
         .rule-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            flex-grow: 1; /* Make description take up available space */
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.98rem;
         }
 
         .rule-tags {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
-            margin-top: auto; /* Push tags to the bottom */
-            padding-top: 1rem; /* Add some space above tags */
-            border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         html[data-theme="light"] .rule-tags {
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-
         .rule-tag {
-            padding: 0.25rem 0.75rem;
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary-light);
+            padding: 0.3rem 0.9rem;
+            background: rgba(79, 70, 229, 0.15);
+            color: var(--primary-blue);
             border-radius: var(--radius-full);
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            transition: background 0.5s ease, color 0.5s ease;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         html[data-theme="light"] .rule-tag {
-            background: rgba(79, 70, 229, 0.1);
-            color: var(--primary-dark);
+            background: rgba(90, 103, 216, 0.15);
+            color: var(--light-primary-dark);
         }
-
 
         .rule-severity {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 12px;
-            height: 12px;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for severity dots */
         }
 
-        .severity-low { background: var(--success); }
-        .severity-medium { background: var(--warning); }
-        .severity-high { background: var(--danger); }
+        .severity-low { background: var(--accent-teal); }
+        .severity-medium { background: var(--warning-orange); }
+        .severity-high { background: var(--danger-red); }
 
         /* Highlight Style */
         .highlight {
-            background-color: var(--warning); /* Or any color you prefer for highlighting */
-            color: var(--bg-primary); /* Text color on highlighted background */
-            padding: 2px 4px;
+            background-color: var(--warning-orange);
+            color: var(--bg-dark-0);
+            padding: 1px 3px;
             border-radius: 4px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 600; /* Make highlighted text stand out more */
         }
-        /* Ensure highlight text color adapts to light theme */
         html[data-theme="light"] .highlight {
-            color: var(--text-primary); /* Darker text for light mode highlight */
-            background-color: var(--secondary);
+            color: var(--light-text-dark);
+            background-color: var(--warning-orange);
         }
 
-
-        /* Quick Actions */
+        /* --- Quick Actions --- */
         .quick-actions {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 2.5rem;
+            right: 2.5rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -634,36 +711,47 @@
         }
 
         .quick-action {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
+            width: 65px;
+            height: 65px;
+            background: var(--primary-blue);
             color: white;
             border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             cursor: pointer;
-            transition: all 0.3s ease, background 0.5s ease, color 0.5s ease;
+            transition: all 0.3s ease-out;
             box-shadow: var(--shadow-lg);
         }
 
         .quick-action:hover {
             transform: scale(1.1);
-            box-shadow: var(--shadow-xl);
+            background: var(--primary-dark-blue);
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4); /* Subtle shadow on hover */
         }
 
         /* Theme Toggle */
         .theme-toggle {
-            background: var(--bg-glass); /* Use theme variable */
-            backdrop-filter: blur(10px);
+            background: var(--bg-dark-2);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-subtle);
         }
         html[data-theme="light"] .theme-toggle {
-            background: rgba(255, 255, 255, 0.6);
-            color: var(--text-primary);
+            background: var(--light-bg-2);
+            color: var(--light-text-dark);
+            border: 1px solid var(--light-border-color);
         }
-
+        .theme-toggle:hover {
+            background: var(--bg-dark-1);
+            border-color: var(--primary-blue);
+        }
+        html[data-theme="light"] .theme-toggle:hover {
+            background: var(--light-bg-1);
+            border-color: var(--light-primary);
+        }
 
         /* Scroll to Top */
         .scroll-top {
@@ -677,10 +765,22 @@
             visibility: visible;
         }
 
-        /* Responsive Design */
+        /* --- Responsive Design --- */
         @media (min-width: 768px) {
             .rules-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .hero-title {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
         }
 
@@ -688,70 +788,112 @@
             .nav-links {
                 display: none;
             }
-
             .mobile-toggle {
                 display: block;
             }
-
             .hero {
-                padding: 6rem 0 3rem;
+                padding: 8rem 0 4rem;
+                min-height: auto;
             }
-
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
             .rules-controls {
                 flex-direction: column;
+                align-items: stretch;
             }
-
-            .search-box {
-                min-width: auto;
-            }
-
             .filter-buttons {
-                flex-wrap: wrap;
-                justify-content: center; /* Center filter buttons on mobile */
+                justify-content: flex-start;
             }
-
+            .search-box {
+                min-width: unset;
+                max-width: unset;
+            }
             .quick-actions {
-                bottom: 1rem;
-                right: 1rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
-
-            .container {
-                padding: 0 1rem;
+            .quick-action {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
             }
-
             .rule-category-title {
                 text-align: center;
                 padding-left: 0;
             }
             .rule-category-title::before {
-                display: none; /* Hide vertical bar on mobile for centered title */
+                display: none;
             }
         }
 
-        /* Utility Classes */
-        .hidden { display: none !important; }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
+        @media (max-width: 480px) {
+            .rules-section {
+                padding: 4rem 0;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .section-description {
+                font-size: 1rem;
+            }
+            .rule-card {
+                padding: 2rem;
+            }
+            .rule-title {
+                font-size: 1.3rem;
+            }
+            .rule-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            .rule-description {
+                font-size: 0.95rem;
+            }
+            .filter-btn {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.9rem;
+            }
+            .search-input {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="loading-screen" id="loading-screen">
-        <div class="loading-logo">Kinetic</div>
-        <div class="loading-spinner"></div>
-        <p class="loading-text">Loading Assets...</p>
-        <div class="loading-progress">
-            <div class="loading-bar"></div>
+        <div class="loading-logo-wrapper">
+            <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
+        </div>
+        <div class="loading-messages" id="loading-messages"></div>
+        <div class="loading-bars-container">
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
         </div>
     </div>
 
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Kinetic</a>
+        <div class="nav-content container">
+            <a href="#" class="nav-logo">
+                <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
+                Kinetic
+            </a>
             <ul class="nav-links">
                 <li><a href="#hero" class="nav-link">Home</a></li>
                 <li><a href="#rules" class="nav-link">Rules</a></li>
-                </ul>
+            </ul>
             <button class="mobile-toggle" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
@@ -759,13 +901,15 @@
     </nav>
 
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg-overlay"></div>
         <div class="hero-content container">
-            <h1 class="hero-title">Welcome to the Official <span class="primary-text">Kinetic</span> Discord</h1>
-            <p class="hero-subtitle">Our rules are designed to foster a friendly, respectful, and engaging community for everyone. Please read them carefully.</p>
+            <h1 class="hero-title">Welcome to Kinetic Official</h1>
+            <p class="hero-subtitle">
+                We're a dedicated team for <a href="https://www.roblox.com/games/73956553001240/Volleyball-Legends" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Volleyball Legends</a>! Join us for competitive scrims and regular recruitment opportunities as we build a strong community of passionate players.
+            </p>
             <div class="hero-actions">
                 <a href="#rules" class="btn btn-primary"><i class="fas fa-book"></i> View Rules</a>
-                <a href="#" class="btn btn-secondary"><i class="fab fa-discord"></i> Join Discord</a>
+                <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-discord"></i> Join Discord</a>
             </div>
         </div>
     </section>
@@ -773,13 +917,13 @@
     <section class="rules-section" id="rules">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Community Rules</h2>
-                <p class="section-description">To ensure a positive environment, we ask all members to adhere to these guidelines. Violations may result in warnings, mutes, or bans.</p>
+                <h2 class="section-title">Community Guidelines</h2>
+                <p class="section-description">To foster a positive and thriving environment, we kindly request all members to follow these guidelines. Violations may result in warnings, mutes, or bans, depending on severity.</p>
             </div>
 
             <div class="rules-controls">
                 <div class="search-box">
-                    <input type="text" id="ruleSearch" class="search-input" placeholder="Search rules..." aria-label="Search rules">
+                    <input type="text" id="ruleSearch" class="search-input" placeholder="Search rules by keyword..." aria-label="Search rules">
                     <i class="fas fa-search search-icon"></i>
                 </div>
                 <div class="filter-buttons">
@@ -793,16 +937,16 @@
 
             <div class="rules-grid" id="rulesGrid">
 
-                <h3 class="rule-category-title" data-category="general">General Rules</h3>
+                <h3 class="rule-category-title" data-category="general">General Conduct</h3>
                 <div class="rule-card" data-tags="general" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">01</div>
-                        <h3 class="rule-title">Be Respectful</h3>
+                        <h3 class="rule-title">Show Respect</h3>
                     </div>
-                    <p class="rule-description">Treat all members with respect. Harassment, hate speech, discrimination, and personal attacks are strictly prohibited.</p>
+                    <p class="rule-description">Treat all members with respect and kindness. Harassment, hate speech, discrimination, and personal attacks are strictly prohibited and will not be tolerated.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">#General</span>
                     </div>
                 </div>
 
@@ -810,242 +954,245 @@
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">02</div>
-                        <h3 class="rule-title">No Spamming</h3>
+                        <h3 class="rule-title">No Excessive Spam</h3>
                     </div>
-                    <p class="rule-description">Avoid excessive messages, repetitive content, or self-promotion that disrupts the chat flow.</p>
+                    <p class="rule-description">Avoid flooding channels with excessive messages, repetitive content, or disruptive self-promotion. Keep conversations concise and on-topic.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">#General</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="general" data-severity="medium">
+                <div class="rule-card" data-tags="general language" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">03</div>
-                        <h3 class="rule-title">English Only in Public Channels</h3>
+                        <h3 class="rule-title">English in Public Channels</h3>
                     </div>
-                    <p class="rule-description">To ensure all moderators can understand and enforce rules, please use English in public discussion channels.</p>
+                    <p class="rule-description">To ensure effective moderation and community understanding, please communicate primarily in English within public discussion channels.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">#General</span>
+                        <span class="rule-tag">#Language</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="general content" data-severity="medium">
+                <div class="rule-card" data-tags="general content profiles" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">04</div>
-                        <h3 class="rule-title">Appropriate Profile Pictures & Names</h3>
+                        <h3 class="rule-title">Appropriate Profiles</h3>
                     </div>
-                    <p class="rule-description">Ensure your profile picture and username are appropriate and do not violate any other rules.</p>
+                    <p class="rule-description">Ensure your profile picture, username, and custom status are appropriate and adhere to all server rules. Offensive or explicit content is not allowed.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">General</span>
-                        <span class="rule-tag">Content</span>
+                        <span class="rule-tag">#General</span>
+                        <span class="rule-tag">#Content</span>
+                        <span class="rule-tag">#Profiles</span>
                     </div>
                 </div>
 
-                 <div class="rule-card" data-tags="general conduct" data-severity="low">
+                 <div class="rule-card" data-tags="general conduct formatting" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">05</div>
-                        <h3 class="rule-title">No Excessive Formatting or ASCII Art Spam</h3>
+                        <h3 class="rule-title">Mind Your Formatting</h3>
                     </div>
-                    <p class="rule-description">While creative uses of Discord's formatting are fun, avoid spamming large blocks of excessive bolding, italics, emojis, or intricate ASCII art that disrupt readability or flood the chat.</p>
+                    <p class="rule-description">While creative formatting is welcome, avoid spamming with excessive bolding, italics, emojis, or intricate ASCII art that hinders readability or floods the chat.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">General</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#General</span>
+                        <span class="rule-tag">#Conduct</span>
                     </div>
                 </div>
 
 
-                <h3 class="rule-category-title" data-category="community">Community Rules</h3>
+                <h3 class="rule-category-title" data-category="community">Community Engagement</h3>
                 <div class="rule-card" data-tags="community content safety" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">06</div>
                         <h3 class="rule-title">No NSFW Content</h3>
                     </div>
-                    <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including explicit, graphic, or offensive material, in any channel.</p>
+                    <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including sexually explicit, graphically violent, or otherwise offensive material, in any channel.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Content</span>
-                        <span class="rule-tag">Safety</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Content</span>
+                        <span class="rule-tag">#Safety</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community safety" data-severity="high">
+                <div class="rule-card" data-tags="community safety privacy" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">07</div>
-                        <h3 class="rule-title">Protect Your Privacy</h3>
+                        <h3 class="rule-title">Protect Privacy</h3>
                     </div>
-                    <p class="rule-description">Do not share personal information about yourself or others (e.g., addresses, phone numbers, real names without consent).</p>
+                    <p class="rule-description">Do not share personal identifying information about yourself or others (e.g., addresses, phone numbers, real names without explicit consent).</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Safety</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Safety</span>
+                        <span class="rule-tag">#Privacy</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community conduct content" data-severity="medium">
+                <div class="rule-card" data-tags="community conduct content advertising" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">08</div>
-                        <h3 class="rule-title">No Advertising</h3>
+                        <h3 class="rule-title">No Unauthorized Advertising</h3>
                     </div>
-                    <p class="rule-description">Do not advertise other Discord servers, social media, or other communities without explicit moderator permission.</p>
+                    <p class="rule-description">Do not advertise other Discord servers, social media platforms, or other communities without explicit permission from a server moderator.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Conduct</span>
-                        <span class="rule-tag">Content</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Conduct</span>
+                        <span class="rule-tag">#Advertising</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community conduct safety" data-severity="high">
+                <div class="rule-card" data-tags="community conduct safety integrity" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">09</div>
                         <h3 class="rule-title">No Cheating/Exploiting</h3>
                     </div>
-                    <p class="rule-description">Discussions or promotion of cheating, hacking, or exploiting in games or any system is strictly forbidden.</p>
+                    <p class="rule-description">Discussions or promotion of cheating, hacking, exploiting, or any form of unfair advantage in games or systems is strictly prohibited.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Conduct</span>
-                        <span class="rule-tag">Safety</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Conduct</span>
+                        <span class="rule-tag">#Integrity</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community conduct safety" data-severity="high">
+                <div class="rule-card" data-tags="community conduct safety impersonation" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">10</div>
                         <h3 class="rule-title">No Impersonation</h3>
                     </div>
-                    <p class="rule-description">Do not impersonate other users, staff, or public figures. This includes using similar names or profile pictures.</p>
+                    <p class="rule-description">Do not impersonate other users, staff members, or public figures. This includes using similar names, profile pictures, or deceptive language.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Conduct</span>
-                        <span class="rule-tag">Safety</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Conduct</span>
+                        <span class="rule-tag">#Impersonation</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community conduct" data-severity="low">
+                <div class="rule-card" data-tags="community conduct discussion" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">11</div>
-                        <h3 class="rule-title">Keep Discussions Constructive</h3>
+                        <h3 class="rule-title">Constructive Discussions</h3>
                     </div>
-                    <p class="rule-description">We encourage healthy debate and different viewpoints, but please ensure your contributions are constructive and respectful. Avoid circular arguments or bad-faith engagement.</p>
+                    <p class="rule-description">Engage in healthy debate and express different viewpoints respectfully. Avoid circular arguments, bad-faith engagement, or unproductive negativity.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Discussion</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community conduct" data-severity="medium">
+                <div class="rule-card" data-tags="community conduct dms mentions" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">12</div>
-                        <h3 class="rule-title">No Unsolicited DMs or Mass Mentions</h3>
+                        <h3 class="rule-title">No Unsolicited DMs/Mentions</h3>
                     </div>
-                    <p class="rule-description">Do not DM other members unless they have given explicit permission. Avoid mentioning large groups of users or roles without a clear and necessary reason.</p>
+                    <p class="rule-description">Do not send unsolicited Direct Messages to other members unless they have given you explicit permission. Avoid mass mentioning users or roles without a valid reason.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#DMs</span>
+                        <span class="rule-tag">#Mentions</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="community general" data-severity="low">
+                <div class="rule-card" data-tags="community general channels" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">13</div>
-                        <h3 class="rule-title">No Private Conversations in Public Channels</h3>
+                        <h3 class="rule-title">Channel Relevance</h3>
                     </div>
-                    <p class="rule-description">If you're having an extended one-on-one discussion that isn't relevant to the general chat or a channel's topic, please move it to DMs or a private thread/voice channel.</p>
+                    <p class="rule-description">Keep conversations relevant to the designated topic of each channel. For extended private discussions, please use DMs or a private thread/voice channel.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Community</span>
-                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">#Community</span>
+                        <span class="rule-tag">#Channels</span>
                     </div>
                 </div>
 
 
-                <h3 class="rule-category-title" data-category="voice">Voice Rules</h3>
+                <h3 class="rule-category-title" data-category="voice">Voice Chat Etiquette</h3>
                 <div class="rule-card" data-tags="voice general" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">14</div>
-                        <h3 class="rule-title">Follow Channel Topics (Voice)</h3>
+                        <h3 class="rule-title">Voice Channel Topics</h3>
                     </div>
-                    <p class="rule-description">Keep conversations in voice channels relevant to the channel's designated topic. If your discussion is off-topic, please move to an appropriate channel.</p>
+                    <p class="rule-description">Ensure your conversations in voice channels align with the channel's intended topic. If your discussion veers off-topic, consider moving to a more suitable channel.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Voice</span>
-                        <span class="rule-tag">General</span>
+                        <span class="rule-tag">#Voice</span>
+                        <span class="rule-tag">#General</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="voice conduct" data-severity="medium">
+                <div class="rule-card" data-tags="voice conduct audio" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">15</div>
-                        <h3 class="rule-title">Respect Voice Chat Etiquette</h3>
+                        <h3 class="rule-title">Respectful Voice Usage</h3>
                     </div>
-                    <p class="rule-description">When in voice channels, minimize background noise, avoid excessive mic popping, and use push-to-talk if needed. Do not play loud music or use disruptive soundboards.</p>
+                    <p class="rule-description">Minimize background noise, avoid excessive mic popping, and use push-to-talk if necessary. Do not play loud music, use disruptive soundboards, or engage in mic spamming.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Voice</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Voice</span>
+                        <span class="rule-tag">#Conduct</span>
                     </div>
                 </div>
 
-                <h3 class="rule-category-title" data-category="staff">Staff Rules</h3>
-                <div class="rule-card" data-tags="staff conduct" data-severity="high">
+                <h3 class="rule-category-title" data-category="staff">Moderation & Staff</h3>
+                <div class="rule-card" data-tags="staff conduct moderation" data-severity="high">
                     <span class="rule-severity severity-high" title="High Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">16</div>
-                        <h3 class="rule-title">Follow Moderator Instructions</h3>
+                        <h3 class="rule-title">Follow Staff Instructions</h3>
                     </div>
-                    <p class="rule-description">Always comply with instructions given by server administrators and moderators. Their decisions are final.</p>
+                    <p class="rule-description">Always comply with instructions and decisions given by server administrators and moderators. Their guidance is crucial for maintaining order and a positive environment.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Staff</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Staff</span>
+                        <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="staff conduct" data-severity="low">
+                <div class="rule-card" data-tags="staff conduct moderation" data-severity="low">
                     <span class="rule-severity severity-low" title="Low Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">17</div>
                         <h3 class="rule-title">No Backseat Moderating</h3>
                     </div>
-                    <p class="rule-description">While helpful intentions are appreciated, please let the moderation team handle rule enforcement. Report rule violations to a moderator directly.</p>
+                    <p class="rule-description">While your assistance is valued, please allow the moderation team to handle rule enforcement. Report violations directly to a moderator rather than addressing them publicly.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Staff</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Staff</span>
+                        <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
 
-                <div class="rule-card" data-tags="staff conduct" data-severity="medium">
+                <div class="rule-card" data-tags="staff conduct moderation" data-severity="medium">
                     <span class="rule-severity severity-medium" title="Medium Severity"></span>
                     <div class="rule-header">
                         <div class="rule-number">18</div>
-                        <h3 class="rule-title">No Public Discussion of Moderation Actions</h3>
+                        <h3 class="rule-title">Private Moderation Discussions</h3>
                     </div>
-                    <p class="rule-description">If you have concerns about a moderation decision, please address them privately with a moderator. Discussing disciplinary actions in public channels is prohibited.</p>
+                    <p class="rule-description">If you have concerns or questions regarding a moderation decision, please address them privately with a moderator. Public discussion of disciplinary actions is prohibited.</p>
                     <div class="rule-tags">
-                        <span class="rule-tag">Staff</span>
-                        <span class="rule-tag">Conduct</span>
+                        <span class="rule-tag">#Staff</span>
+                        <span class="rule-tag">#Moderation</span>
                     </div>
                 </div>
 
             </div>
 
             <div class="text-center">
-                <a href="#" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord to Learn More</a>
+                <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord</a>
             </div>
         </div>
     </section>
 
     <div class="quick-actions">
         <button class="quick-action theme-toggle" aria-label="Toggle dark/light theme">
-            <i class="fas fa-moon"></i>
-        </button>
+            <i class="fas fa-sun"></i> </button>
         <button class="quick-action scroll-top" aria-label="Scroll to top">
             <i class="fas fa-arrow-up"></i>
         </button>
@@ -1054,28 +1201,43 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const loadingScreen = document.getElementById('loading-screen');
+            const loadingMessages = document.getElementById('loading-messages');
+            const progressBar = document.getElementById('progressBar'); // This is no longer used but kept for consistency in removal.
             const navbar = document.getElementById('navbar');
             const heroContent = document.querySelector('.hero-content');
-            const rulesGrid = document.getElementById('rulesGrid'); // Get the rules grid container
-            const ruleCards = rulesGrid.querySelectorAll('.rule-card'); // Select cards *within* the grid
+            const rulesGrid = document.getElementById('rulesGrid');
+            const ruleCards = rulesGrid.querySelectorAll('.rule-card');
             const ruleCategoryTitles = rulesGrid.querySelectorAll('.rule-category-title');
             const scrollTopBtn = document.querySelector('.scroll-top');
             const themeToggleBtn = document.querySelector('.theme-toggle');
             const filterButtons = document.querySelectorAll('.filter-btn');
             const ruleSearchInput = document.getElementById('ruleSearch');
             const navLinks = document.querySelectorAll('.nav-link');
+            const htmlElement = document.documentElement;
+
+            // --- Loading Screen Messages ---
+            const messages = [
+                "Initializing connection...",
+                "Loading community data...",
+                "Optimizing rule engine...",
+                "Syncing server protocols...",
+                "Preparing your experience..."
+            ];
+            let messageIndex = 0;
+
+            const displayNextMessage = () => {
+                loadingMessages.textContent = messages[messageIndex];
+                messageIndex = (messageIndex + 1) % messages.length;
+            };
 
             // --- Theme Toggle (Dark/Light) ---
-            const htmlElement = document.documentElement; // Represents the <html> tag
-
-            // Function to set the theme
             const setTheme = (theme) => {
                 htmlElement.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
                 if (theme === 'light') {
-                    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-                } else {
                     themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                } else {
+                    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
                 }
             };
 
@@ -1084,11 +1246,9 @@
             if (currentTheme) {
                 setTheme(currentTheme);
             } else {
-                // Default to dark theme if no preference is stored
                 setTheme('dark');
             }
 
-            // Add event listener for theme toggle button
             themeToggleBtn.addEventListener('click', () => {
                 let theme = htmlElement.getAttribute('data-theme');
                 if (theme === 'light') {
@@ -1099,34 +1259,41 @@
             });
 
             // --- Loading Screen Logic ---
-            setTimeout(() => {
-                loadingScreen.classList.add('loaded');
-                // After loading screen fades, make navbar and hero visible
-                setTimeout(() => {
-                    navbar.classList.add('visible');
-                    heroContent.style.opacity = '1';
-                    heroContent.style.transform = 'translateY(0)';
-                    // Animate rule cards and apply initial filter
-                    filterRules(); // Call filterRules once after content is loaded
-                }, 800); // Matches loading-screen transition duration
-            }, 2500); // Simulate content loading for 2.5 seconds
+            let progress = 0;
+            const loadingInterval = setInterval(() => {
+                progress += 100 / (messages.length * 1.5); // Adjust speed based on number of messages and total time
+                displayNextMessage(); // Show next message with each progress increment
+                // For the bar wave animation, we don't need a numerical progress bar,
+                // the `barWave` animation handles the visual progress.
+                // We'll just control the total duration of the loading screen.
+
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('loaded');
+                        setTimeout(() => {
+                            navbar.classList.add('visible');
+                            heroContent.style.opacity = '1';
+                            heroContent.style.transform = 'translateY(0)';
+                            filterRules(); // Initial filter and animation of cards
+                        }, 700); // Matches loading-screen fade transition
+                    }, 500); // Small delay after "progress" completes for visual effect
+                }
+            }, 500); // Update message every 0.5 seconds for a total of approx 3.75 seconds
 
             // --- Navbar visibility on scroll ---
             let lastScrollTop = 0;
             window.addEventListener('scroll', () => {
                 let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-                if (currentScroll > lastScrollTop) {
-                    // Scrolling down
+                if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
                     navbar.classList.remove('visible');
                 } else {
-                    // Scrolling up
                     navbar.classList.add('visible');
                 }
-                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 
-                // Show/hide scroll to top button
-                if (currentScroll > 300) {
+                if (currentScroll > 400) {
                     scrollTopBtn.classList.add('visible');
                 } else {
                     scrollTopBtn.classList.remove('visible');
@@ -1137,11 +1304,35 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // Check if the href is not empty to avoid errors
-                    if (this.getAttribute('href')) {
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId) {
+                        document.querySelector(targetId).scrollIntoView({
                             behavior: 'smooth'
                         });
+                    }
+                });
+            });
+
+            // Highlight active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Adjusted offset to make activation feel more natural when section enters view
+                    if (pageYOffset >= sectionTop - navbar.offsetHeight - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
                     }
                 });
             });
@@ -1158,7 +1349,7 @@
             const originalRuleContent = {};
             ruleCards.forEach(card => {
                 const ruleNumberElement = card.querySelector('.rule-number');
-                const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId; // Use data-ruleId if number is missing
+                const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId;
                 const ruleTitle = card.querySelector('.rule-title');
                 const ruleDescription = card.querySelector('.rule-description');
                 originalRuleContent[ruleNumber] = {
@@ -1173,7 +1364,6 @@
                 const terms = searchTerm.split(' ').filter(word => word.length > 0);
                 if (terms.length === 0) return text;
 
-                // Escape special characters in the search terms for regex
                 const escapedTerms = terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
                 const regex = new RegExp(`(${escapedTerms.join('|')})`, 'gi');
                 return text.replace(regex, '<span class="highlight">$&</span>');
@@ -1182,9 +1372,10 @@
             const filterRules = () => {
                 const searchTerm = ruleSearchInput.value.toLowerCase().trim();
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                const isSearching = searchTerm !== '';
 
-                const matchingCategories = new Set();
-                let delay = 0;
+                const categoriesPresent = new Set();
+                let animationDelay = 0;
 
                 ruleCards.forEach(card => {
                     const ruleNumberElement = card.querySelector('.rule-number');
@@ -1195,52 +1386,65 @@
                     const titleText = originalTitle.toLowerCase();
                     const descriptionText = originalDescription.toLowerCase();
 
-                    const matchesSearch = searchTerm === '' ||
+                    const matchesSearch = !isSearching ||
                                           titleText.includes(searchTerm) ||
                                           descriptionText.includes(searchTerm);
 
                     const tags = card.dataset.tags.toLowerCase();
                     const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
 
-                    // Reset content before applying new highlights or hiding
                     card.querySelector('.rule-title').innerHTML = originalTitle;
                     card.querySelector('.rule-description').innerHTML = originalDescription;
 
                     if (matchesSearch && matchesFilter) {
-                        card.style.display = 'flex'; // Use flex to maintain card structure
-                        if (searchTerm) {
+                        card.style.display = 'flex';
+                        if (isSearching) {
                             card.querySelector('.rule-title').innerHTML = highlightText(originalTitle, searchTerm);
                             card.querySelector('.rule-description').innerHTML = highlightText(originalDescription, searchTerm);
                         }
+                        card.style.animationDelay = `${animationDelay}ms`;
                         card.classList.add('visible');
-                        matchingCategories.add(tags.split(' ')[0]); // Add the primary category of the matching card
+                        animationDelay += 70;
+                        // Add the primary category of the card to the set if it's visible
+                        const cardCategory = card.closest('.rules-grid').querySelector(`[data-category="${tags.split(' ')[0]}"]`);
+                        if (cardCategory) {
+                             categoriesPresent.add(cardCategory.dataset.category);
+                        }
                     } else {
                         card.style.display = 'none';
                         card.classList.remove('visible');
+                        card.style.animationDelay = '0ms';
                     }
                 });
 
                 // Control category titles visibility
                 ruleCategoryTitles.forEach(title => {
                     const category = title.dataset.category;
-                    if (activeFilter === 'all' || activeFilter === category || matchingCategories.has(category)) {
-                        title.style.display = 'block';
+                    // If searching AND no cards in this category are visible, hide the title.
+                    // Otherwise, display it.
+                    if (isSearching && !categoriesPresent.has(category)) {
+                         title.style.display = 'none';
                     } else {
-                        title.style.display = 'none';
+                         title.style.display = 'block';
+                         // If a filter is active and it's not 'all' and it doesn't match this category, hide it.
+                         if (activeFilter !== 'all' && category !== activeFilter) {
+                             title.style.display = 'none';
+                         }
                     }
                 });
             };
 
-            ruleSearchInput.addEventListener('keyup', filterRules);
+            ruleSearchInput.addEventListener('input', filterRules);
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    filterRules(); // Re-apply filter and search
+                    filterRules();
                 });
             });
         });
     </script>
 </body>
 </html>
+j
