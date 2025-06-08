@@ -487,7 +487,6 @@
             text-align: left;
             position: relative;
             padding-left: 1.5rem;
-            transition: all 0.3s ease; /* Smooth transition for display/opacity */
         }
 
         .rule-category-title::before {
@@ -1184,28 +1183,9 @@
                 const searchTerm = ruleSearchInput.value.toLowerCase().trim();
                 const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
 
-                // Determine if any category titles should be shown
-                const showCategoryTitles = searchTerm === '' && activeFilter === 'all';
-
-                ruleCategoryTitles.forEach(title => {
-                    if (showCategoryTitles) {
-                        const category = title.dataset.category;
-                        // Only show specific category title if 'All' is active AND the category is also active
-                        // or if the category is part of the current filter and search is empty
-                        if (activeFilter === 'all' || activeFilter === category) {
-                            title.style.display = 'block';
-                            title.style.opacity = '1';
-                        } else {
-                             title.style.display = 'none';
-                             title.style.opacity = '0';
-                        }
-                    } else {
-                        title.style.display = 'none';
-                        title.style.opacity = '0';
-                    }
-                });
-
+                const matchingCategories = new Set();
                 let delay = 0;
+
                 ruleCards.forEach(card => {
                     const ruleNumberElement = card.querySelector('.rule-number');
                     const ruleNumber = ruleNumberElement ? ruleNumberElement.textContent : card.dataset.ruleId;
@@ -1232,14 +1212,21 @@
                             card.querySelector('.rule-title').innerHTML = highlightText(originalTitle, searchTerm);
                             card.querySelector('.rule-description').innerHTML = highlightText(originalDescription, searchTerm);
                         }
-                        // Add visible class with a slight delay for animation
-                        setTimeout(() => {
-                            card.classList.add('visible');
-                        }, delay);
-                        delay += 100; // Increment delay for next card
+                        card.classList.add('visible');
+                        matchingCategories.add(tags.split(' ')[0]); // Add the primary category of the matching card
                     } else {
                         card.style.display = 'none';
-                        card.classList.remove('visible'); // Ensure it's hidden and animation resets
+                        card.classList.remove('visible');
+                    }
+                });
+
+                // Control category titles visibility
+                ruleCategoryTitles.forEach(title => {
+                    const category = title.dataset.category;
+                    if (activeFilter === 'all' || activeFilter === category || matchingCategories.has(category)) {
+                        title.style.display = 'block';
+                    } else {
+                        title.style.display = 'none';
                     }
                 });
             };
@@ -1253,9 +1240,6 @@
                     filterRules(); // Re-apply filter and search
                 });
             });
-
-            // Initial call to filterRules to ensure correct visibility on load
-            filterRules();
         });
     </script>
 </body>
