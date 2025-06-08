@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Official - Discord Server Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+
+    <div class="loading-screen" id="loading-screen">
+        <h1 class="loading-text">KINETIC OFFICIAL</h1>
+        <div class="loading-bars-container">
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+            <div class="loading-bar-segment"></div>
+        </div>
+        <div class="loading-divider"></div>
+        <div class="loading-troubleshoot-messages">
+            <p>&bull; Taking too long? Try refreshing.</p>
+            <p>&bull; <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer">Join the Discord Server</a> if you're facing any further issues.</p>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://cdn.discordapp.com/attachments/1372102328496427111/1381123871767265310/standard_8.gif?ex=68465f57&is=68450dd7&hm=13b4149d4dd30c4863f4f21397ed2a4f73c2a2f23c47e29c88f02c777a228821&" alt="Kinetic Logo">
+                Kinetic
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rules.html" class="nav-link active">Rules</a></li>
+                <li><a href="channels.html" class="nav-link">Channel Guide</a></li>
+                <li><a href="roles.html" class="nav-link">Roles Info</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="rules-section" id="rules">
+            <div class="container text-left"> <div class="section-header">
+                    <h2 class="section-title">Community Guidelines</h2>
+                    <p class="section-description">To foster a positive and thriving environment, we kindly request all members to follow these guidelines. Violations may result in warnings, mutes, or bans, depending on severity.</p>
+                </div>
+
+                <div class="rules-controls">
+                    <div class="search-box">
+                        <input type="text" id="ruleSearch" class="search-input" placeholder="Search rules by keyword..." aria-label="Search rules">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" aria-label="Show all rules">All</button>
+                        <button class="filter-btn" data-filter="general" aria-label="Filter General rules">General</button>
+                        <button class="filter-btn" data-filter="community" aria-label="Filter Community rules">Community</button>
+                        <button class="filter-btn" data-filter="voice" aria-label="Filter Voice rules">Voice</button>
+                        <button class="filter-btn" data-filter="staff" aria-label="Filter Staff rules">Staff</button>
+                    </div>
+                </div>
+
+                <div class="rules-grid" id="rulesGrid">
+                    <h3 class="rule-category-title" data-category="general">General Conduct</h3>
+                    <div class="rule-card" data-tags="general" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">01</div>
+                            <h3 class="rule-title">Show Respect</h3>
+                        </div>
+                        <p class="rule-description">Treat all members with respect and kindness. Harassment, hate speech, discrimination, and personal attacks are strictly prohibited and will not be tolerated.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="general" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">02</div>
+                            <h3 class="rule-title">No Excessive Spam</h3>
+                        </div>
+                        <p class="rule-description">Avoid flooding channels with excessive messages, repetitive content, or disruptive self-promotion. Keep conversations concise and on-topic.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="general language" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">03</div>
+                            <h3 class="rule-title">English in Public Channels</h3>
+                        </div>
+                        <p class="rule-description">To ensure effective moderation and community understanding, please communicate primarily in English within public discussion channels.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                            <span class="rule-tag">#Language</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="general content profiles" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">04</div>
+                            <h3 class="rule-title">Appropriate Profiles</h3>
+                        </div>
+                        <p class="rule-description">Ensure your profile picture, username, and custom status are appropriate and adhere to all server rules. Offensive or explicit content is not allowed.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                            <span class="rule-tag">#Content</span>
+                            <span class="rule-tag">#Profiles</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="general conduct formatting" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">05</div>
+                            <h3 class="rule-title">Mind Your Formatting</h3>
+                        </div>
+                        <p class="rule-description">While creative formatting is welcome, avoid spamming with excessive bolding, italics, emojis, or intricate ASCII art that hinders readability or floods the chat.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#General</span>
+                            <span class="rule-tag">#Conduct</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="community">Community Engagement</h3>
+                    <div class="rule-card" data-tags="community content safety" data-severity="high">
+                        <span class="rule-severity severity-high" title="High Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">06</div>
+                            <h3 class="rule-title">No NSFW Content</h3>
+                        </div>
+                        <p class="rule-description">Do not post any Not Safe For Work (NSFW) content, including sexually explicit, graphically violent, or otherwise offensive material, in any channel.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Content</span>
+                            <span class="rule-tag">#Safety</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community safety privacy" data-severity="high">
+                        <span class="rule-severity severity-high" title="High Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">07</div>
+                            <h3 class="rule-title">Protect Privacy</h3>
+                        </div>
+                        <p class="rule-description">Do not share personal identifying information about yourself or others (e.g., addresses, phone numbers, real names without explicit consent).</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Safety</span>
+                            <span class="rule-tag">#Privacy</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community conduct content advertising" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">08</div>
+                            <h3 class="rule-title">No Unauthorized Advertising</h3>
+                        </div>
+                        <p class="rule-description">Do not advertise other Discord servers, social media platforms, or other communities without explicit permission from a server moderator.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Conduct</span>
+                            <span class="rule-tag">#Advertising</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community conduct safety integrity" data-severity="high">
+                        <span class="rule-severity severity-high" title="High Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">09</div>
+                            <h3 class="rule-title">No Cheating/Exploiting</h3>
+                        </div>
+                        <p class="rule-description">Discussions or promotion of cheating, hacking, exploiting, or any form of unfair advantage in games or systems is strictly prohibited.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Conduct</span>
+                            <span class="rule-tag">#Integrity</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community conduct safety impersonation" data-severity="high">
+                        <span class="rule-severity severity-high" title="High Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">10</div>
+                            <h3 class="rule-title">No Impersonation</h3>
+                        </div>
+                        <p class="rule-description">Do not impersonate other users, staff members, or public figures. This includes using similar names, profile pictures, or deceptive language.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Conduct</span>
+                            <span class="rule-tag">#Impersonation</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community conduct discussion" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">11</div>
+                            <h3 class="rule-title">Constructive Discussions</h3>
+                        </div>
+                        <p class="rule-description">Engage in healthy debate and express different viewpoints respectfully. Avoid circular arguments, bad-faith engagement, or unproductive negativity.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Discussion</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community conduct dms mentions" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">12</div>
+                            <h3 class="rule-title">No Unsolicited DMs/Mentions</h3>
+                        </div>
+                        <p class="rule-description">Do not send unsolicited Direct Messages to other members unless they have given you explicit permission. Avoid mass mentioning users or roles without a valid reason.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#DMs</span>
+                            <span class="rule-tag">#Mentions</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="community general channels" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">13</div>
+                            <h3 class="rule-title">Channel Relevance</h3>
+                        </div>
+                        <p class="rule-description">Keep conversations relevant to the designated topic of each channel. For extended private discussions, please use DMs or a private thread/voice channel.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Community</span>
+                            <span class="rule-tag">#Channels</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="voice">Voice Chat Etiquette</h3>
+                    <div class="rule-card" data-tags="voice general" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">14</div>
+                            <h3 class="rule-title">Voice Channel Topics</h3>
+                        </div>
+                        <p class="rule-description">Ensure your conversations in voice channels align with the channel's intended topic. If your discussion veers off-topic, consider moving to a more suitable channel.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Voice</span>
+                            <span class="rule-tag">#General</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="voice conduct audio" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">15</div>
+                            <h3 class="rule-title">Respectful Voice Usage</h3>
+                        </div>
+                        <p class="rule-description">Minimize background noise, avoid excessive mic popping, and use push-to-talk if necessary. Do not play loud music, use disruptive soundboards, or engage in mic spamming.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Voice</span>
+                            <span class="rule-tag">#Conduct</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rule-category-title" data-category="staff">Moderation & Staff</h3>
+                    <div class="rule-card" data-tags="staff conduct moderation" data-severity="high">
+                        <span class="rule-severity severity-high" title="High Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">16</div>
+                            <h3 class="rule-title">Follow Staff Instructions</h3>
+                        </div>
+                        <p class="rule-description">Always comply with instructions and decisions given by server administrators and moderators. Their guidance is crucial for maintaining order and a positive environment.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Staff</span>
+                            <span class="rule-tag">#Moderation</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="staff conduct moderation" data-severity="low">
+                        <span class="rule-severity severity-low" title="Low Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">17</div>
+                            <h3 class="rule-title">No Backseat Moderating</h3>
+                        </div>
+                        <p class="rule-description">While your assistance is valued, please allow the moderation team to handle rule enforcement. Report violations directly to a moderator rather than addressing them publicly.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Staff</span>
+                            <span class="rule-tag">#Moderation</span>
+                        </div>
+                    </div>
+                    <div class="rule-card" data-tags="staff conduct moderation" data-severity="medium">
+                        <span class="rule-severity severity-medium" title="Medium Severity"></span>
+                        <div class="rule-header">
+                            <div class="rule-number">18</div>
+                            <h3 class="rule-title">Private Moderation Discussions</h3>
+                        </div>
+                        <p class="rule-description">If you have concerns or questions regarding a moderation decision, please address them privately with a moderator. Public discussion of disciplinary actions is prohibited.</p>
+                        <div class="rule-tags">
+                            <span class="rule-tag">#Staff</span>
+                            <span class="rule-tag">#Moderation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://discord.gg/UEwy4XWTjd" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-discord"></i> Join Our Discord</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="quick-actions">
+        <button class="quick-action theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="quick-action scroll-top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script> </body>
+
+</html>
